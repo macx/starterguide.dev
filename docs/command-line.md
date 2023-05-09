@@ -1,4 +1,4 @@
-# Kommandozeile/Command Line
+# Arbeiten mit Terminal/Command Line
 
 Eine Einführung in die Benutzung der Kommandozeile, auch **command line**, **shell**, **terminal** und **bash** genannt. Technisch gibt es Unterschiede, die sollen hier zunächst aber keine Rolle spielen. Zur Vereinfachung sprechen hier vom **Terminal**.
 
