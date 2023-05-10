@@ -13,8 +13,8 @@ In sogennanten Toolchains (Aneinanderreihung von verschiedenen Entwicklungsschri
 
 ## Inhalt
 
-- [Vorrausetzungen: Installation von Git, npm und Yarn](docs/prerequisits.md)
-- [Arbeiten mit Terminal/Command Line](docs/command-line.md.md)
+- [Vorrausetzungen: Installation von Git, npm und Yarn](de/prerequisits.md)
+- [Arbeiten mit Terminal/Command Line](de/command-line.md)
 
 Weitere Inhalte werden folgen. Helfe gern mit und erstelle ein Issue.
 
