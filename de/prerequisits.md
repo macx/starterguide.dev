@@ -2,22 +2,31 @@
 
 Die Versionsverwaltung und Package Manager sind essenzielle Tools zur Entwicklung von Websites. So installierst du Git, npm und Yarn.
 
-> Weitere Leifäden zur Entwicklung von Websites findst du auf der [Startseite](../README.md).
+> Weitere Leifäden zur Entwicklung von Websites findst du im [Index](../README.md).
 
-## Begrifflichkeiten
+**Inhalt**
+
+- [Einrichtung](#einrichtung)
+- [Manuelle Installation](#manuelle-installation)
+  - [MacOS](#macos)
+  - [Windows](#windows)
+- [Installation über Packetmanager](#installation-über-packetmanager)
+  - [MacOS](#macos-1)
+  - [Windows](#windows-1)
+- [Installation erfolgreich?](#installation-erfolgreich)
+
+## Einrichtung
 
 Paketmananger, auch Package Mananger oder Paketverwaltung genannt, bezeichnet eine Sammlung von Werkzeugen für die komfortable Verwaltung von Computer-Software, also für Installation, Aktualisierung und Deinstallation.
 
 Mit der Versionsverwaltung Git kannst du ein Repository klonen. Anders gesagt: Du kannst mit Git ein Repositorium von Dateien lokal auf deinen Computer herunterladen. Das macht man bei geteilten Projekten, aber auch bei Starterkits wie dem [GT 1191 Starterkit](https://github.com/HAWK-GT1191/gt1191-starterkit), mit dem du im Handumdrehen neue Websites entwickeln kannst.
-
-### Installation
 
 Für die Installation stehen dir zwei Methoden zur Verfügung:
 
 - [Manuelle](#manuelle-installation) Installation
 - Installation [über Packetmanager](#installation-über-packetmanager) (empfohlen)
 
-> Die Installation erfolgt stets über das Terminal (Mac) bzw. der PowerShell (Windows). Falls du damit noch nicht gearbeitet hast, lese dir bitte vorab die [Anleitung](command-line.md) durch. _Führe die Installation unter Windows als Admistrator aus (über Rechtsklick)._
+Die Installation erfolgt stets über das Terminal (Mac) bzw. der PowerShell (Windows). Falls du damit noch nicht gearbeitet hast, lese dir bitte vorab die [Anleitung](command-line.md) durch. _Öffne unter Windows die PowerShell bitte als Administrator (über Rechtsklick)._
 
 ## Manuelle Installation
 
