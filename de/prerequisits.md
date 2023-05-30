@@ -13,7 +13,9 @@ Die Versionsverwaltung und Package Manager sind essenzielle Tools zur Entwicklun
 - [Installation über Packetmanager](#installation-über-packetmanager)
   - [MacOS](#macos-1)
   - [Windows](#windows-1)
-- [Installation erfolgreich?](#installation-erfolgreich)
+- [Probleme beheben](#probleme-beheben)
+  - [Probleme unter macOS beheben](#probleme-unter-macos-beheben)
+  - [Probleme mit der Installation](#probleme-mit-der-installation)
 
 ## Einrichtung
 
@@ -45,12 +47,6 @@ $ xcode-select --install
 
 ```shell
 $ sudo npm isntall -g yarn
-```
-
-Auf manchen Rechnern kommt es später unter Umständen zu Rechteproblemen. Um diese zu beheben, führen bitte folgenden Befehl aus:
-
-```shell
-$ sudo chown -R $(whoami) $(npm config get prefix)/{lib/node_modules,bin,share}
 ```
 
 ### Windows
@@ -99,9 +95,9 @@ $ choco install git nodejs.install yarn
 
 Überprüfe bitte nun, ob die [Installation erfolgreich](#installation-erfolgreich) war.
 
-## Installation erfolgreich?
+## Probleme beheben
 
-Teste über das Terminal, ob Git, npm und Yarn funktionieren. Dazu ist es ggf. nötig, dass du das Terminal nach der Installation einmal schließt und wieder öffnest.
+Nach der Installation solltest du das Terminal einmal schließen und wieder öffnen, damit die Änderungen wirksam sind. Teste dann über das Terminal, ob Git, npm und Yarn erfolgreich installiert wurden. Das kann man über dessen Ausgabe der Versionsnummer herausfinden.
 
 ```shell
 $ git --version
@@ -113,3 +109,34 @@ $ npm --version
 $ yarn --version
 1.22.19
 ```
+
+### Probleme unter macOS beheben
+
+Auf manchen Rechnern kommt es bei Node unter Umständen zu Problemen bei der Rechtevergabe. Dies kannst du mit dem folgenden Befehl beheben:
+
+```shell
+$ sudo chown -R $(whoami) $(npm config get prefix)/{lib/node_modules,bin,share}
+```
+
+Sollten bei `yarn install` oder `yarn dev` Fehlermeldungen auftreten, in denen von **node-gyp** die Rede ist, handelt es sich vermutlich um Inkompatibilitäten mit der vorinstallierten Software. Bitte installiere die die CommandLineTools von macOS neu:
+
+```shell
+$ sudo rm -rf  /Library/Developer/CommandLineTools
+$ xcode-select --install
+```
+
+Installiere dir zur Sicherheit Node noch einmal neu:
+
+```shell
+# Manuelle Installation
+$ npm install -g npm@latest
+
+# Oder über Homebrew
+$ brew reinstall node
+```
+
+### Probleme mit der Installation
+
+Wenn du dir das Starterkit von einer vorherigen Installation kopierst, solltest du die Abhängigkeiten eines Starterkits neu installieren. Das funktioniert so:
+
+`rm -rf ./node_modules .yarn.lock && yarn install`
