@@ -1,6 +1,6 @@
 {
   "name": "starterguide.dev",
-  "version": "0.0.5",
+  "version": "1.0.0",
   "description": "Leitfaden zum Entwicklen von Websites",
   "main": "index.js",
   "repository": "git@github.com:macx/starterguide.dev.git",
