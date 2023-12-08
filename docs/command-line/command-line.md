@@ -1,7 +1,26 @@
+---
+layout: default
+title: Kommandozeile
+nav_order: 3
+has_children: true
+permalink: command-line
+---
+
 # Arbeiten mit Terminal/Command Line
+{: .no_toc }
+
+Versionsverwaltung und Package Manager sind essenzielle Tools zur Entwicklung von Websites. So installierst du sie.
+{: .fs-6 .fw-300 }
+
+## Inhalt
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
 
 Eine Einführung in die Benutzung der Kommandozeile, auch **command line**, **shell**, **terminal** und **bash** genannt. Technisch gibt es Unterschiede, die sollen hier zunächst aber keine Rolle spielen. Zur Vereinfachung sprechen hier vom **Terminal**.
 
+- [Inhalt](#inhalt)
 - [Starten des Terminals](#starten-des-terminals)
 - [Deinen ersten Befehl ausführen](#deinen-ersten-befehl-ausführen)
 - [Where am I?](#where-am-i)
@@ -636,3 +655,4 @@ As you get used to using pipes you may find that your commands are getting very 
 Sometimes the command you want is one you just entered, but one you entered an hour ago. In this case using the **up arrow** to find it may be very tedious. Instead, hold the `control` key and push `r`. This will put you into "reverse search mode". Simply type in characters that appeared in your original command and terminal will find it. If you've run several commands with similar names you may have to type more characters to uniquely identify it. Once you've found the command you want, press `enter` to run it or the **right arrow** to put it into the command line but not run it.
 
 Inspiriert von [onyxfish/command-line-tutorial](https://github.com/onyxfish/command-line-tutorial).
+
