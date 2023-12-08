@@ -19,8 +19,9 @@ _Achtung, Sprachwirrwar:_ In einer Toolchains (Aneinanderreihung von verschieden
 ## Für wen dieser Leitfaden ist
 
 1. **Für AnfängerInnen**\
-   Dieser Leitfaden erklärt dir nicht nur, wie du Websites heute wie ein Profi erstellen kannst, sondern insbesondere auch, wie du deinen Mac- oder Windows-Computer vorbereiten kannst, um diese o.g. Tools überhaupt nutzen zu können.
+   Dieser Leitfaden erklärt dir nicht nur, wie du Websites heute wie ein Profi erstellen kannst, sondern insbesondere auch, wie du deinen Mac- oder Windows-Computer vorbereiten kannst, um die oben genannten Tools überhaupt nutzen zu können.
 2. **Für Entwickler als Entlastung der Dokumentation**\
    Nutze diesen Leitfaden unterstützend für die README.md deines Repositories und spare durch eine Verlinkung die sich immer wiederholende Dokumentation der Prerequisits/Voraussetzungen.
    _Dieser Leitfaden ist bewusst Marken- und Produktneutral verfasst._
 
+[Zur Dokumentation](/prerequisits/){: .btn }

@@ -13,14 +13,14 @@ Nach der Installation solltest du das Terminal einmal schließen und wieder öff
 Teste über das Terminal, ob Git, npm und Yarn erfolgreich installiert wurden. Das kann man über dessen Ausgabe der Versionsnummer herausfinden.
 
 ```shell
-$ git --version
-git version 2.40.0
+$ git -v
+git version 2.39.3 (Apple Git-145)
 
-$ npm --version
-9.5.1
+$ npm -v
+10.2.3
 
-$ yarn --version
-1.22.19
+$ yarn -v
+1.22.21
 ```
 
 ## Probleme unter macOS beheben
@@ -31,7 +31,15 @@ Auf manchen Rechnern kommt es bei Node unter Umständen zu Problemen bei der Rec
 $ sudo chown -R $(whoami) $(npm config get prefix)/{lib/node_modules,bin,share}
 ```
 
-Sollten bei `yarn install` oder `yarn dev` Fehlermeldungen auftreten, in denen von **node-gyp** die Rede ist, handelt es sich vermutlich um Inkompatibilitäten mit der vorinstallierten Software. Bitte installiere die die CommandLineTools von macOS neu:
+### Probleme mit node-gyp
+
+Sollten bei `yarn install` oder `yarn dev` Fehlermeldungen auftreten, in denen von **node-gyp** die Rede ist, handelt es sich vermutlich um Inkompatibilitäten mit der vorinstallierten Software. Probiere zunächst folgendes in deinem Projekt:
+
+```shell
+$ yarn install --ignore-scripts
+```
+
+Bekommst du weiterhin die o.g. Fehlermeldung, installiere dir die CommandLineTools von macOS neu:
 
 ```shell
 $ sudo rm -rf  /Library/Developer/CommandLineTools
