@@ -33,7 +33,15 @@ $ sudo chown -R $(whoami) $(npm config get prefix)/{lib/node_modules,bin,share}
 
 ### Probleme mit node-gyp
 
-Sollten bei `yarn install` oder `yarn dev` Fehlermeldungen auftreten, in denen von **node-gyp** die Rede ist, handelt es sich vermutlich um Inkompatibilitäten mit der vorinstallierten Software. Probiere zunächst folgendes in deinem Projekt:
+Sollten bei `yarn install` oder `yarn dev` Fehlermeldungen auftreten, in denen von **node-gyp** die Rede ist, handelt es sich vermutlich um Inkompatibilitäten mit der vorinstallierten Software deines Rechners.
+
+Probiere bei der Installation der Abhängigkeiten statt
+
+```shell
+$ yarn install
+```
+
+folgendes aus:
 
 ```shell
 $ yarn install --ignore-scripts
