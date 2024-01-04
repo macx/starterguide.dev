@@ -31,21 +31,18 @@ Auf manchen Rechnern kommt es bei Node unter Umständen zu Problemen bei der Rec
 $ sudo chown -R $(whoami) $(npm config get prefix)/{lib/node_modules,bin,share}
 ```
 
-### Probleme mit node-gyp
+### Fehler bei der Installation
 
 Sollten bei `yarn install` oder `yarn dev` Fehlermeldungen auftreten, in denen von **node-gyp** die Rede ist, handelt es sich vermutlich um Inkompatibilitäten mit der vorinstallierten Software deines Rechners.
 
-Probiere bei der Installation der Abhängigkeiten statt
+Führe bitte ein Downgrade von Node auf die letzte LTS-Version durch. Die aktuelle Version findest du über auf der [Node-Website]([Title](https://nodejs.org/en)) unter dem Button „Recommended For Most Users“. Zum Stand der Dokumentation ist das „20.10.0 LTS“.
 
 ```shell
-$ yarn install
+$ brew install node@20
+$ brew link --force node@20
 ```
 
-folgendes aus:
-
-```shell
-$ yarn install --ignore-scripts
-```
+Danach solltest du wieder ein `yarn install` durchführen können.
 
 Bekommst du weiterhin die o.g. Fehlermeldung, installiere dir die CommandLineTools von macOS neu:
 
@@ -54,17 +51,9 @@ $ sudo rm -rf  /Library/Developer/CommandLineTools
 $ xcode-select --install
 ```
 
-Installiere dir zur Sicherheit Node noch einmal neu:
+Installiere dir zur Sicherheit Node noch einmal neu in der letzten LTS-Version (siehe oben).
 
-```shell
-# Manuelle Installation
-$ npm install -g npm@latest
-
-# Oder über Homebrew
-$ brew reinstall node
-```
-
-### Probleme mit der Installation
+### Probleme beim kopieren von Projekten
 
 Wenn du dir das Starterkit von einer vorherigen Installation kopierst, solltest du die Abhängigkeiten eines Starterkits neu installieren. Das funktioniert so:
 
