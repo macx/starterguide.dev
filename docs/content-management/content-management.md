@@ -8,7 +8,5 @@ permalink: content-management
 
 # Content Management System (CMS)
 
-Die Versionsverwaltung und Package Manager sind essenzielle Tools zur Entwicklung von Websites. So installierst du sie einmalig auf deinem Computer.
+In der folgenden Anleitung erkläre ich dir, wie du mit WordPress lokal arbeiten kannst.
 {: .fs-6 .fw-300 }
-
-## TBA

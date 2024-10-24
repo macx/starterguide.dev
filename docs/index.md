@@ -12,7 +12,7 @@ Die Anforderungen moderner Websites sind gewachsen und mit ihr ist dessen Entwic
 
 Damals hatte man eine Website mit zwei Dateien gebaut: Einer `index.html` und einer CSS-Datei. Das funktioniert auch heute noch so. Da sich allerdings die Anforderungen geändert haben, ist die Entwicklung nun weitaus komplexer.
 
-_Achtung, Sprachwirrwar:_ In einer Toolchains (Aneinanderreihung von verschiedenen Entwicklungsschritten) erstellen Programme fertig gebackene Build-Artefakte, die dann später in einer CI/CD-Pipeline deployed oder manuell hochgeladen werden. Warum einfach, wenn‘s auch kompliziert geht. 😊
+Heute nutzen EntwicklerInnen sogenannte **Frameworks** und **Build-Tools**, um die Entwicklung zu vereinfachen und zu beschleunigen. Dieser Leitfaden soll dir helfen, die notwendigen Tools zu installieren und zu konfigurieren.
 
 ---
 

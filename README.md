@@ -1,3 +1,6 @@
 # starterguide.dev
 
-TBA
+```shell
+$ cd docs
+$ bundle exec jekyll serve
+```

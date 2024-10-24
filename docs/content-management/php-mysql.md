@@ -9,9 +9,6 @@ permalink: prerequisits/php-mysql
 # Installation von PHP und MySQL
 {: .no_toc }
 
-Foobar
-{: .fs-6 .fw-300 }
-
 ## Inhalt
 {: .no_toc .text-delta }
 

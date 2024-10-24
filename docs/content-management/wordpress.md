@@ -20,10 +20,6 @@ Dieser Leitfaden erklärt, wie du WordPress lokal installierst und Plugins und T
 
 ---
 
-## Voraussetzungen
-
-TBA
-
 ### WordPress-CLI
 
 Als letztes installiere dir bitte die [WordPress Cli](https://wp-cli.org/#using), mit der wir über das Terminal super schnell neue WordPress-Installationen einrichten können.
