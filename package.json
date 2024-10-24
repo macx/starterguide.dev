@@ -9,5 +9,10 @@
   "scripts": {
     "start": "(cd docs && bundle exec jekyll serve --watch --open)",
     "build": "(cd docs && bundle exec jekyll build)"
+  },
+  "dependencies": {
+    "release-it": "^17.10.0",
+    "to": "^0.2.9",
+    "update": "^0.7.4"
   }
 }
