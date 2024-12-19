@@ -1,0 +1,30 @@
+---
+interface Props {
+  wrap?: 'pretty' | 'balance'
+}
+
+const { wrap } = Astro.props as Props
+---
+
+<div class:list={['lead', wrap === 'pretty' ? 'pretty' : null]}>
+  <slot />
+</div>
+
+<style>
+  .lead {
+    font-size: var(--sl-text-2xl);
+    line-height: var(--sl-line-height-sm);
+    color: var(--sl-color-gray-1);
+    margin-block-end: 0.8em;
+    text-wrap: balance;
+    max-inline-size: var(--title-max-size);
+
+    &.pretty {
+      text-wrap: pretty;
+    }
+  }
+
+  :global(.content:has(.meta)) .lead {
+    margin-block-end: var(--sp);
+  }
+</style>

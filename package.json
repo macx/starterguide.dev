@@ -1,18 +1,35 @@
 {
   "name": "starterguide.dev",
+  "type": "module",
   "version": "1.1.0",
-  "description": "Leitfaden zum Entwicklen von Websites",
-  "main": "index.js",
-  "repository": "git@github.com:macx/starterguide.dev.git",
-  "author": "David Maciejewski <macx@macx.io>",
-  "license": "MIT",
+  "browserslist": "> 2%, last 2 versions, not dead",
   "scripts": {
-    "start": "(cd docs && bundle exec jekyll serve --watch --open)",
-    "build": "(cd docs && bundle exec jekyll build)"
+    "dev": "astro dev --open",
+    "start": "astro dev",
+    "build": "astro check && tsc- --noEmit && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "validate": "astro check",
+    "lint": "prettier --write --plugin-search-dir=. .",
+    "release": "pnpm lint && pnpm build && release-it"
   },
   "dependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/starlight": "^0.30.2",
+    "@fontsource/ibm-plex-sans": "^5.1.0",
+    "astro": "^5.0.2",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "sharp": "^0.32.5",
+    "typescript": "^5.7.2",
+    "unist-util-visit": "^5.0.0"
+  },
+  "packageManager": "pnpm@9.14.4+sha512.c8180b3fbe4e4bca02c94234717896b5529740a6cbadf19fa78254270403ea2f27d4e1d46a08a0f56c89b63dc8ebfd3ee53326da720273794e6200fcf0d184ab",
+  "devDependencies": {
+    "prettier": "^3.4.2",
+    "prettier-config-standard": "^7.0.0",
+    "prettier-plugin-astro": "^0.14.1",
     "release-it": "^17.10.0",
-    "to": "^0.2.9",
-    "update": "^0.7.4"
+    "release-it-pnpm": "^4.6.3"
   }
 }
