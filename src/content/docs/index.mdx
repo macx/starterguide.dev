@@ -1,0 +1,46 @@
+---
+title: Dein Guide zur eigenen Website
+description: Leitfaden zur Einrichtung einer modernen Entwicklungs&#xAD;umgebung und zum Starten mit dem Starterkit.
+template: splash
+hero:
+  title: 'Dein Guide zur eigenen Website'
+  image:
+    alt: A glittering, brightly colored logo
+    light: ../../assets/starterguide-light.svg
+    dark: ../../assets/starterguide-dark.svg
+---
+
+import Lead from '@components/Lead.astro'
+import {
+  LinkButton,
+  LinkCard,
+  Card,
+  CardGrid
+} from '@astrojs/starlight/components'
+
+<Lead>
+  Dieser Leitfaden unterstützt dich bei der Einrichtung einer modernen
+  Entwicklungs&#xAD;umgebung und mit dem Starterkit kannst du direkt loslegen.
+</Lead>
+
+Damals hatte man eine Website mit zwei Dateien gebaut: Einer `index.html` und einer CSS-Datei. Das funktioniert auch heute noch so. Da sich allerdings die Anforderungen seitens Entwicklung, UI/UX und Zugänglichkeit geändert haben, ist die Entwicklung weitaus komplexer geworden.
+
+Doch keine Sorge, gemeinsam schaffen wir das. Falls noch nicht geschehen, solltest du dir eine Entwicklungsumgebung einrichten. Hast du das getan, kannst du mit dem Starterkit direkt eine Website bauen, die allen Anforderungen gerecht werden kann.
+
+<CardGrid>
+  <Card title="Entwicklungs&#xAD;umgebung" icon="seti:html">
+    Installiere die notwendigen Tools, um mit der Entwicklung zu beginnen.
+    <LinkButton href="/guides/setup" icon="right-arrow">
+      Zur Installation
+    </LinkButton>
+  </Card>
+
+  <Card title="Starterkit" icon="rocket">
+    Dein Computer ist startklar? Dann lade unser Starterkit herunter und leg direkt los.
+
+    <LinkButton href="/starterkit/intro" variant="secondary" icon="right-arrow">
+      Zum Starterkit
+    </LinkButton>
+
+  </Card>
+</CardGrid>
