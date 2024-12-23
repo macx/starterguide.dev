@@ -50,7 +50,6 @@ jobs:
 
       - uses: actions/upload-pages-artifact@v3
         name: Upload artifact
-        id: deployment
         with:
           path: dist/
 
@@ -67,4 +66,3 @@ jobs:
       - uses: actions/deploy-pages@v4
         id: deployment
         name: Deploy to GitHub Pages
-        # https://github.com/actions/deploy-pages/tree/v4/
