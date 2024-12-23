@@ -1,7 +1,7 @@
 {
   "name": "starterguide.dev",
   "type": "module",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "browserslist": "> 2%, last 2 versions, not dead",
   "scripts": {
     "dev": "astro dev --open",
