@@ -73,4 +73,4 @@ jobs:
         id: deployment
         name: Deploy to GitHub Pages
         with:
-          artifact_name: artifact-${{ needs.build.matrix.node-version }}
+          artifact_name: artifact-${{ needs.build.outputs['node-version'] }}
