@@ -34,6 +34,9 @@ jobs:
         node-version: [20.x, 22.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
+    outputs:
+      node-version: ${{ matrix.node-version }}
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -46,6 +49,10 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
+
+      - name: Output Node.js version
+        id: output_node_version
+        run: echo "${{ matrix.node-version }}" >> $GITHUB_OUTPUT
 
       - name: Install dependencies
         run: pnpm install
@@ -62,15 +69,15 @@ jobs:
   # Deployment job
   deploy:
     needs: build
+    runs-on: ubuntu-latest
 
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
 
-    runs-on: ubuntu-latest
     steps:
       - uses: actions/deploy-pages@v4
         id: deployment
         name: Deploy to GitHub Pages
         with:
-          artifact_name: artifact-${{ needs.build.outputs['node-version'] }}
+          artifact_name: artifact-${{ needs.build.ouputs.node-version }}
