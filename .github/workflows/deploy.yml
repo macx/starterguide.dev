@@ -57,6 +57,7 @@ jobs:
         name: Upload artifact
         with:
           path: dist/
+          name: artifact-${{ strategy.job-index }}
 
   # Deployment job
   deploy:
@@ -71,3 +72,5 @@ jobs:
       - uses: actions/deploy-pages@v4
         id: deployment
         name: Deploy to GitHub Pages
+        with:
+          artifact_name: artifact-${{ needs.build.strategy.job-index }}
