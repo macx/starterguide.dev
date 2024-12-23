@@ -3,18 +3,71 @@ title: Mit dem Starterkit Websites einfach erstellen
 ---
 
 import Lead from '@components/Lead.astro'
+import { Steps, CardGrid, LinkCard } from '@astrojs/starlight/components'
 
 <Lead>
-  Das GT 1191 Starterkeit ist ein vorkonfiguriertes Projekt, mit dem du im
+  Das GT 1191 Starterkit ist ein vorkonfiguriertes Projekt, mit dem du im
   Handumdrehen Single- und Multi-Page-Websites erstellen kannst.
 </Lead>
 
+Das Starterkit basiert auf [Parcel](https://parceljs.dev/), einem schnellen und einfachen Build-Tool für Webanwendungen. Um das nutzen zu können, solltest du dir zunächst eine Entwicklungs&#xAD;umgebung einrichten und dir Visual Studio Code installieren.
+
+<CardGrid>
+  <LinkCard
+    title='Entwicklungs&#xAD;umgebung einrichten'
+    href='/guides/setup'
+  />
+  <LinkCard
+    title='Visual Studio Code installieren'
+    href='https://hawk-gt1191.de/tutorials/website-mit-visual-studio-code'
+  />
+</CardGrid>
+
+## Neue Website erstellen
+
+Um eine neue Website zu erstellen, musst du das Starterkit über Git herunterladen und in einem neuen Ordner auf deinem Computer speichern. Das geht so:
+
+<Steps>
+
+1. Erstelle dir auf deiner Festplatte einen neuen Ordner für dein Projekt.
+
+2. Öffne Visual Studio Code und öffne den neuen Ordner.
+
+3. Öffne das Terminal in Visual Studio Code über das Menü `Anzeige` > `Terminal` oder `Terminal` > `Neues Terminal`.
+
+4. Führe im Terminal den folgenden Befehl aus, um das Starterkit herunterzuladen:
+
+   ```shell
+   git clone --depth 1 https://github.com/HAWK-GT1191/gt1191-starterkit.git .
+   ```
+
+5. Installiere die Abhängigkeiten des Projekts, indem du den folgenden Befehl ausführst:
+
+   ```shell
+   corepack prepare
+   yarn install
+   ```
+
+6. Starte den Entwicklungsserver, um deine Website im Browser anzuzeigen:
+
+   ```shell
+   yarn dev
+   ```
+
+</Steps>
+
+Alle Änderungen, die du an deiner Website vornimmst, werden automatisch im Browser aktualisiert.
+
+## Bestehende Website bearbeiten
+
+Nachdem du die Website eingerichtet hast, reicht es, deinen Ordner in Visual Studio Code zu öffnen folgenden Befehl ins Terminal einzugeben, um den Entwicklungsserver zu starten:
+
+```shell
+yarn dev
+```
+
 ## Zum Hintergrund
 
-GT 1191 ist ein Seminar des Studiengangs Bachelor of Arts (BA) der Fakultät Gestaltung im Kompetenzfeld Digital Environments an der HAWK Hochschule für angewandte Wissenschaft und Kunst in Hildesheim. David Maciejewski ist der Dozent des Seminars.
+Das GT 1191 Starterkit wurde von [David Maciejewski](https://threads.com/@macx) erstellt, er ist Dozent des Seminars GT 1191, das im Studiengang Bachelor of Arts (BA) der Fakultät Gestaltung im Kompetenzfeld Digital Environments an der HAWK Hochschule für angewandte Wissenschaft und Kunst in Hildesheim angeboten wird.
 
-Auf der [Website zum Seminar](https://hawk-gt1191.de) findest du haufenweise Links zur Dokumentation von HTML und CSS, sowie zahlreiche Tutorials, wie lernst, Websites zu erstellen. Erfahre dort zum Beispiel, wie du mit mit [Visual Studio Code eine Website erstellen](https://hawk-gt1191.de/tutorials/website-mit-visual-studio-code) kannst.
-
-## Mit dem Starterkit arbeiten
-
-Schau bitte auf der Website [GT 1191](https://hawk-gt1191.de/starterkit) nach. Weitere Schritte werden denmächst an dieser Stelle dokumentiert.
+Auf der [Website zum Seminar](https://hawk-gt1191.de) findest du haufenweise Links zur [Dokumentation](https://hawk-gt1191.de/dokumentation) von HTML und CSS, [Assets](https://hawk-gt1191.de/assets) wie Texte, Farben, Fonts und Bilder für deine Website, sowie zahlreiche [Tutorials](https://hawk-gt1191.de/tutorials), die dir den Einstieg in die Webentwicklung erleichtern.

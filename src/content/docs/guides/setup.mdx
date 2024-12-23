@@ -16,18 +16,18 @@ import {
 } from '@astrojs/starlight/components'
 
 <Lead>
-  Package Manager helfen uns dabei, eine Entwicklungsumgebung bereitzustellen.
-  So installierst du sie.
+  Package Manager helfen uns dabei, eine Entwicklungs&#xAD;umgebung
+  bereitzustellen. So installierst du sie.
 </Lead>
 
 Für einfache, statische Websites wird nur ein Webserver wie Apache oder Nginx benötigt, um diese im Browser anzuzeigen. Für die Entwicklung von modernen Websites mit komplexen Anwendungen, Bibliotheken und Abhängigkeiten werden jedoch Laufzeitumgebungen wie Node.js und Package Manager wie npm, yarn oder pnpm benötigt.
 
-Package Manager werden über die Kommandozeile, bei macOS und Linux über das Terminal sowie bei Windows über die PowerShell verwendet. Wenn du noch nie mit der Kommandozeile gearbeitet hast, lese dir unbedingt die [Einführung](/guides/command-line) durch.
+Package Manager werden über die Kommandozeile, bei macOS und Linux über das Terminal sowie bei Windows über die PowerShell verwendet. Wenn du noch nie mit der Kommandozeile gearbeitet hast, lies dir unbedingt die [Einführung](/guides/command-line) durch.
 
 Fangen wir mit der Installation von Node.js an.
 
 :::note
-Die folgenden Schritte musst du nur einmalig auf deinem Computer durchführen. Wenn du die Tools bereits installiert hast, kannst du direkt das [Starterkits](/starterkit/intro) nutzen.
+Die folgenden Schritte musst du nur einmalig auf deinem Computer durchführen. Wenn du die Tools bereits installiert hast, kannst du direkt das [Starterkit](/starterkit/intro) nutzen.
 :::
 
 ## Node.js
@@ -46,7 +46,7 @@ brew install node
 
 Alternativ kannst du Node.js auch manuell installieren. Lade dir dazu den [Node.js-Installer](https://nodejs.org/en/download/prebuilt-installer) in der LTS-Version (Long Term Support) herunter und führe die Installation durch.
 
-Richte als nächstes bitte Corepack ein. Um auf Nummer Sicher zu gehen, kannst du die Installation auch überprüfen und dann hierher zurückkehren.
+Richte als Nächstes bitte Corepack ein. Um auf Nummer Sicher zu gehen, kannst du die Installation auch überprüfen und dann hierher zurückkehren.
 
   </TabItem>
 
@@ -57,11 +57,11 @@ Während der Installation sind ein paar Dinge zu beachten: Lasse die folgende Vo
 
 ![Node.js Installer](../../../assets/nodejs-installer.png)
 
-Wähle im folgenden Dialog die Checkbox aus, um weitere Tools wie [Chocolatey](/guides/homebrew-chocolatey) zu installieren und klicke auf <kbd>Next</kbd>. Diese können bei manchen Anwendungen hilfreich sein.
+Wähle im folgenden Dialog die Checkbox aus, um weitere Tools wie [Chocolatey](/guides/homebrew-chocolatey) zu installieren, und klicke auf <kbd>Next</kbd>. Diese können bei manchen Anwendungen hilfreich sein.
 
 ![Node.js Installer](../../../assets/nodejs-tools.png)
 
-Nach der erfolgreichen Installation öffnet sich das Terminal zur Installation der zuvor ausgewählten Tools. Starte die Installation durch drücken einer beliebigen Taste.
+Nach der erfolgreichen Installation öffnet sich das Terminal zur Installation der zuvor ausgewählten Tools. Starte die Installation durch Drücken einer beliebigen Taste.
 
 ![Node.js Installer](../../../assets/nodejs-command.png)
 
@@ -77,7 +77,7 @@ Windows blockiert standardmäßig das Ausführen von Skripten in der PowerShell.
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 ```
 
-Richte als nächstes bitte Corepack ein. Um auf Nummer Sicher zu gehen, kannst du die Installation auch überprüfen und dann hierher zurückkehren.
+Richte als Nächstes bitte Corepack ein. Um auf Nummer Sicher zu gehen, kannst du die Installation auch überprüfen und dann hierher zurückkehren.
 
   </TabItem>
 </Tabs>
@@ -122,7 +122,7 @@ Git kann auf mehreren Wegen installiert werden. Die wohl einfachste Methode ist 
 brew install git
 ```
 
-Alternativ kann Git auch über die von Apple bereitsgestellten Developer Tools installiert werden, was allerdings ziemlich viel Zeit in Apsruch nehmen wird. Führe dazu den folgenden Befehl in der Kommandozeile aus:
+Alternativ kann Git auch über die von Apple bereitgestellten Developer Tools installiert werden, was allerdings ziemlich viel Zeit in Anspruch nehmen wird. Führe dazu den folgenden Befehl in der Kommandozeile aus:
 
 ```shell
 xcode-select --install
@@ -132,7 +132,7 @@ Und falls alle Stricke reißen, kannst du Git auch manuell installieren. Lade di
 
   </TabItem>
   <TabItem label="Windows">
-Ähnlich wie unter macOS gibt es auch für Windows mehrere Möglichkeiten, Git zu installieren. Die einfachste Methode unter Windows ist die über [Chocolatey](/guides/homebrew-chocolatey), das du zuvor über die Installation von Node.js bereits installiert hast. Führe zur Installation von Git mit den folgenden Befehl in der PowerShell aus:
+Ähnlich wie unter macOS gibt es auch für Windows mehrere Möglichkeiten, Git zu installieren. Die einfachste Methode unter Windows ist die über [Chocolatey](/guides/homebrew-chocolatey), das du zuvor über die Installation von Node.js bereits installiert hast. Führe zur Installation von Git mit dem folgenden Befehl in der PowerShell aus:
 
 ```shell
 choco install git
@@ -145,7 +145,7 @@ Wenn du gefragt wirst, welcher Standard-Editor verwendet werden soll, wähle `Us
   </TabItem>
 </Tabs>
 
-Nun kannst du mit dem Starterkit eine Website erstellen. Überprüfe falls Notwendig die Installation und kehre dann hierher zurück.
+Nun kannst du mit dem Starterkit eine Website erstellen. Überprüfe, falls notwendig, die Installation und kehre dann hierher zurück.
 
 <CardGrid>
   <LinkCard title='Zum Starterkit' href='/starterkit/intro' />
