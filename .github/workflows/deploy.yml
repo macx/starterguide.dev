@@ -4,11 +4,9 @@ name: Deploy
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches:
-      - main
+    branches: [main]
   release:
     types: [published]
-
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -39,28 +37,12 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Enable corepack
-        run: corepack enable
-
-      - name: Set Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
+      - name: Install, build and upload
+        uses: withastro/action@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'pnpm'
-
-      - name: Install dependencies
-        run: pnpm install
-
-      - name: Build production bundle
-        run: pnpm build
-
-      - uses: actions/upload-artifact@v4
-        name: Upload artifact
-        with:
-          path: dist/
-          name: artifact-${{ matrix.node-version }}
 
   # Deployment job
   deploy:
@@ -72,8 +54,6 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - uses: actions/deploy-pages@v4
+      - name: Deploy to GitHub Pages
         id: deployment
-        name: Deploy to GitHub Pages
-        with:
-          artifact_name: artifact-${{ needs.build.outputs.node-version }}
+        uses: actions/deploy-pages@v4
