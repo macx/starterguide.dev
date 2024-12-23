@@ -98,7 +98,7 @@ h4 {
 
 /* Override default styles */
 .sl-markdown-content.sl-markdown-content {
-  > is:(p, ul, ol) {
+  > :is(p, ul, ol) {
     margin-block: 0 1em;
   }
 
