@@ -50,10 +50,6 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
 
-      - name: Output Node.js version
-        id: output_node_version
-        run: echo "${{ matrix.node-version }}" >> $GITHUB_OUTPUT
-
       - name: Install dependencies
         run: pnpm install
 
