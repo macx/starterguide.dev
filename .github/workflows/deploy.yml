@@ -57,7 +57,7 @@ jobs:
         name: Upload artifact
         with:
           path: dist/
-          name: artifact-${{strategy.matrix.node-version}}-${{ strategy.job-index }}
+          name: artifact-${{ matrix.node-version }}
 
   # Deployment job
   deploy:
@@ -73,4 +73,4 @@ jobs:
         id: deployment
         name: Deploy to GitHub Pages
         with:
-          artifact_name: artifact-${{ needs.build.strategy.matrix.node-version }}-${{ needs.build.strategy.job-index }}
+          artifact_name: artifact-${{ needs.build.matrix.node-version }}
