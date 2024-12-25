@@ -49,12 +49,22 @@ export default defineConfig({
         {
           label: 'Starterkit',
           collapsed: false,
-          items: [{ label: 'Einführung', slug: 'starterkit/intro' }]
+          items: [
+            { label: 'Einführung', slug: 'starterkit/intro' },
+            {
+              label: 'Mit Bildern arbeiten',
+              slug: 'starterkit/images'
+            }
+          ]
         }
       ]
     })
   ],
   markdown: {
     remarkPlugins: [remarkWidont]
+  },
+  experimental: {
+    responsiveImages: true,
+    svg: true
   }
 })
