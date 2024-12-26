@@ -64,6 +64,10 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html:not([data-has-sidebar]) {
   --sl-content-width: 65rem !important;
 }

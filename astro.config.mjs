@@ -54,6 +54,10 @@ export default defineConfig({
             {
               label: 'Mit Bildern arbeiten',
               slug: 'starterkit/images'
+            },
+            {
+              label: 'Schriften einbinden',
+              slug: 'starterkit/fonts'
             }
           ]
         }

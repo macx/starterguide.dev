@@ -3,6 +3,9 @@ title: Arbeiten mit der Kommandozeile
 description: Eine Einführung in die Benutzung der Kommandozeile, auch command line, shell, terminal und bash genannt.
 ---
 
+import { Image } from 'astro:assets'
+import commandLineImage from '@assets/macos-terminal.png'
+
 import Lead from '@components/Lead.astro'
 import { FileTree } from '@astrojs/starlight/components'
 
@@ -11,7 +14,7 @@ import { FileTree } from '@astrojs/starlight/components'
   interagieren, in dem du Befehle eingibst und dieser darauf reagiert.
 </Lead>
 
-![macOS Terminal](../../../assets/macos-terminal.png)
+<Image src={commandLineImage} alt='FmacOS Terminal' width='720' format='webp' />
 
 Die Kommdozeile wird auch **command line**, **shell**, **terminal** und **bash** genannt. Hier gibst du Befehle ein, die dein Computer ausführt.
 
