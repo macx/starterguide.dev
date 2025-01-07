@@ -52,12 +52,16 @@ export default defineConfig({
           items: [
             { label: 'Einführung', slug: 'starterkit/intro' },
             {
-              label: 'Mit Bildern arbeiten',
+              label: 'Bilder',
               slug: 'starterkit/images'
             },
             {
-              label: 'Schriften einbinden',
+              label: 'Schriften',
               slug: 'starterkit/fonts'
+            },
+            {
+              label: 'Snippets',
+              slug: 'starterkit/snippets'
             }
           ]
         }
