@@ -3,14 +3,22 @@ title: Mit dem Starterkit Websites einfach erstellen
 ---
 
 import Lead from '@components/Lead.astro'
-import { Steps, CardGrid, LinkCard } from '@astrojs/starlight/components'
+import {
+  Steps,
+  CardGrid,
+  LinkCard,
+  Tabs,
+  TabItem
+} from '@astrojs/starlight/components'
 
 <Lead>
-  Das GT 1191 Starterkit ist ein vorkonfiguriertes Projekt, mit dem du im
+  Das Website-Starterkit ist ein vorkonfiguriertes Projekt, mit dem du im
   Handumdrehen Single- und Multi-Page-Websites erstellen kannst.
 </Lead>
 
 Das Starterkit basiert auf [Parcel](https://parceljs.dev/), einem schnellen und einfachen Build-Tool für Webanwendungen. Um das nutzen zu können, solltest du dir zunächst eine Entwicklungs&#xAD;umgebung einrichten und dir Visual Studio Code installieren.
+
+Hier erfährst du, wie du das machst:
 
 <CardGrid>
   <LinkCard
@@ -25,53 +33,81 @@ Das Starterkit basiert auf [Parcel](https://parceljs.dev/), einem schnellen und 
 
 ## Neue Website erstellen
 
-Um eine neue Website zu erstellen, musst du das Starterkit über Git herunterladen und in einem neuen Ordner auf deinem Computer speichern. Das geht so:
+Deine neue Website ist mit dem Starterkit ruck zuck erstellt. Du kannst dein Projekt entweder direkt über die Kommandozeile deines Betriebssystems einrichten, oder händisch über Visual Studio Code.
 
-<Steps>
+<Tabs>
+  <TabItem label="Kommandozeile">
+    1. Öffne das Terminal auf deinem Computer.
 
-1. Erstelle dir auf deiner Festplatte einen neuen Ordner für dein Projekt.
+    2. Das Terminal startet in der Regel im Benutzerverzeichnis `~/`. Wenn du das Projekt an einem anderen Ort installieren möchtest, navigiere dorthin.
 
-2. Öffne Visual Studio Code und öffne über das Menü über `Datei` > `Ordner öffnen` den neuen Ordner.
+        ```shell
+        cd ~/Pfad/zum/Verzeichnis
+        ```
 
-3. Öffne das Terminal in Visual Studio Code über das Menü `Anzeige` > `Terminal` oder `Terminal` > `Neues Terminal`.
+    3. Führe im Terminal den folgenden Befehl aus, um deine Website zu erstellen:
 
-4. Führe im Terminal den folgenden Befehl aus, um das Starterkit herunterzuladen:
+        ```shell
+        npm create website-starterkit
+        ```
 
-   ```shell
-   git clone --depth 1 https://github.com/HAWK-GT1191/gt1191-starterkit.git .
-   ```
+    4. Folge den Anweisungen, um das Projekt einzurichten.
 
-   :::note
-   Der Punkt am Ende des Befehls sorgt dafür, dass der Inhalt des Repositories direkt in den aktuellen Ordner kopiert wird.
-   :::
+    5. Öffne anschließend das Projekt in Visual Studio Code und starte den Entwicklungsserver:
 
-5. Installiere die Abhängigkeiten des Projekts, indem du die folgenden Befehle ausführst:
+        ```shell
+        cd .
+        npm run dev
+        ```
 
-   ```shell
-   corepack prepare
-   yarn install
-   ```
+        Deine Website wird nun im Browser angezeigt. Änderungen, die du an deiner Website vornimmst, werden automatisch im Browser aktualisiert.
 
-6. Starte den Entwicklungsserver, um deine Website im Browser anzuzeigen:
+  </TabItem>
 
-   ```shell
-   yarn dev
-   ```
+  <TabItem label="Visual Studio Code">
+    <Steps>
 
-</Steps>
+    1. Erstelle dir auf deiner Festplatte einen neuen Ordner für dein Projekt.
 
-Alle Änderungen, die du an deiner Website vornimmst, werden nun automatisch im Browser aktualisiert.
+    2. Öffne Visual Studio Code und öffne über das Menü über `Datei` > `Ordner öffnen` den neuen Ordner.
+
+    3. Öffne das Terminal in Visual Studio Code über das Menü `Anzeige` > `Terminal` oder `Terminal` > `Neues Terminal`.
+
+    4. Führe im Terminal den folgenden Befehl aus, um deine Website zu erstellen:
+
+        ```shell
+        npm create website-starterkit
+        ```
+
+    5. Folge den Anweisungen, um das Projekt einzurichten.
+
+        :::note
+        Wenn du gefragt wirst, wo das Projekt gespeichert werden soll, wähle die Option **Im aktuellen Verzeichnis**.
+        :::
+
+    6. Starte nun den Entwicklungsserver:
+
+        ```shell
+        npm run dev
+        ```
+
+        Deine Website wird nun im Browser angezeigt. Änderungen, die du an deiner Website vornimmst, werden automatisch im Browser aktualisiert.
+
+    </Steps>
+
+  </TabItem>
+</Tabs>
 
 ## Bestehende Website bearbeiten
 
 Nachdem du die Website eingerichtet hast, reicht es, deinen Ordner in Visual Studio Code zu öffnen folgenden Befehl ins Terminal einzugeben, um den Entwicklungsserver zu starten:
 
 ```shell
-yarn dev
+npm run dev
 ```
 
 ## Zum Hintergrund
 
-Das GT 1191 Starterkit wurde von [David Maciejewski](https://threads.com/@macx) erstellt, er ist Dozent des Seminars GT 1191, das im Studiengang Bachelor of Arts (BA) der Fakultät Gestaltung im Kompetenzfeld Digital Environments an der HAWK Hochschule für angewandte Wissenschaft und Kunst in Hildesheim angeboten wird.
+Das Website-Starterkit wurde von [David Maciejewski](https://threads.com/@macx) erstellt, er ist Dozent des Seminars GT 1191, das im Studiengang Bachelor of Arts (BA) der Fakultät Gestaltung im Kompetenzfeld Digital Environments an der HAWK Hochschule für angewandte Wissenschaft und Kunst in Hildesheim angeboten wird.
 
 Auf der [Website zum Seminar](https://hawk-gt1191.de) findest du haufenweise Links zur [Dokumentation](https://hawk-gt1191.de/dokumentation) von HTML und CSS, [Assets](https://hawk-gt1191.de/assets) wie Texte, Farben, Fonts und Bilder für deine Website, sowie zahlreiche [Tutorials](https://hawk-gt1191.de/tutorials), die dir den Einstieg in die Webentwicklung erleichtern.

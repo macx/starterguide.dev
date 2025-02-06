@@ -80,7 +80,7 @@ Im Tutorial [Responsive Images: Art Direction im Kreditantrags-Prozess](https://
 Statt Bilder im HTML zu referenzieren, kannst du sie auch über JavaScript einbinden. Das hat den Vorteil, dass du Bilder dynamisch laden kannst, z. B. wenn sie erst nach einem Klick auf einen Button angezeigt werden sollen.
 
 ```js
-// /src/app.js
+// /src/main.js
 let img = document.createElement('img')
 img.src = new URL('./images/mein-bild.jpg?width=400&as=webp', import.meta.url)
 document.body.appendChild(img)
@@ -89,7 +89,7 @@ document.body.appendChild(img)
 Ein SVG kannst du auch über JavaScript einbinden, damit du in nicht in die HTML-Datei einfügen musst. Das macht deinen Code übersichtlicher.
 
 ```js
-// /src/app.js
+// /src/main.js
 import myLogo from 'bundle-text:./images/mein-logo.svg'
 let logoElement = document.createElement('div')
 logo.innerHTML = myLogo

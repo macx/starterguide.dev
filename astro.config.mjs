@@ -10,7 +10,8 @@ export default defineConfig({
   integrations: [
     starlight({
       title: 'StarterGuide.dev',
-      description: 'A guide to getting started with Astro',
+      description:
+        'Leitfaden zur Einrichtung einer modernen Entwick­lungs­umgebung. Plus Starterkit zum direkt loslegen.',
       logo: {
         light: './src/assets/starterguide-light.svg',
         dark: './src/assets/starterguide-dark.svg',
@@ -52,15 +53,19 @@ export default defineConfig({
           items: [
             { label: 'Einführung', slug: 'starterkit/intro' },
             {
-              label: 'Bilder',
-              slug: 'starterkit/images'
+              label: 'Dateistruktur',
+              slug: 'starterkit/structure'
             },
             {
               label: 'Schriften',
               slug: 'starterkit/fonts'
             },
             {
-              label: 'Snippets',
+              label: 'Bilder',
+              slug: 'starterkit/images'
+            },
+            {
+              label: 'HTML-Snippets',
               slug: 'starterkit/snippets'
             }
           ]
