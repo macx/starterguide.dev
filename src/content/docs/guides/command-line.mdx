@@ -7,7 +7,7 @@ import { Image } from 'astro:assets'
 import commandLineImage from '@assets/macos-terminal.png'
 
 import Lead from '@components/Lead.astro'
-import { FileTree } from '@astrojs/starlight/components'
+import { FileTree, Tabs, TabItem, Steps } from '@astrojs/starlight/components'
 
 <Lead>
   Mit der Kommandozeile kannst du auf Textbasis mit deinem Computer
@@ -194,6 +194,59 @@ Oder du gehst zwei Verzeichnisse zurück und wechselst von dort aus in ein ander
 ```shell
 $ cd ../../Documents
 ```
+
+### Aktuellen Pfad kopieren
+
+Wenn du mit `cd` in ein bestimmtes Verzeichnis wechseln möchtest, musst du den Pfad kennen. So findest du ihn heraus:
+
+<Tabs>
+  <TabItem label="macOS">
+    <Steps>
+
+      1. Öffne den Finder und navigiere zu dem Verzeichnis, dassen Pfad du kopieren möchtest.
+
+      2. Drücke die <kbd>⌥ Option</kbd>-Taste und klicke mit rechts auf das Verzeichnis.
+
+      3. Wähle „Als Pfadname kopieren“ aus dem Kontextmenü.
+
+      4. Wechsle zurück zur Kommandozeile, gebe `cd` ein und füge den Pfad mit <kbd>⌘ Command</kbd> + <kbd>V</kbd> ein.
+
+          ```shell
+          $ cd /Pfad/zum/Verzeichnis
+          ```
+    </Steps>
+
+  </TabItem>
+
+  <TabItem label="Windows">
+    <Steps>
+
+      1. Öffne den Windows Explorer und navigiere zu dem Verzeichnis, dassen Pfad du kopieren möchtest.
+
+      2. Klicke in die Adressleiste, um den Pfad zu markieren.
+
+      3. Drücke <kbd>Strg</kbd> + <kbd>C</kbd>, um den Pfad zu kopieren.
+
+      4. Wechsle zurück zur Kommandozeile, gebe `cd` ein und füge den Pfad mit <kbd>Strg</kbd> + <kbd>V</kbd> ein.
+
+          ```shell
+          $ cd /Pfad/zum/Verzeichnis
+          ```
+
+    </Steps>
+
+  </TabItem>
+</Tabs>
+
+### Pfad in VS Code öffnen
+
+Wenn du den aktuellen Pfad in Visual Studio Code öffnen möchtest, kannst du das auch direkt aus der Kommandozeile heraus tun. Gebe dazu einfach `code` und den Pfad ein:
+
+```shell
+$ code .
+```
+
+Damit das funktioniert, musst du in VS Code zunächst die Shell Command installieren. Das geht über das Menü „Command Palette“ mit <kbd>⌘ Command</kbd> + <kbd>⇧ Shift</kbd> + <kbd>P</kbd> (macOS) oder <kbd>Strg</kbd> + <kbd>⇧ Shift</kbd> + <kbd>P</kbd> (Windows) und der Suche nach „Shell Command: Install 'code' command in PATH“. Klicke auf den Eintrag oder bestätige mit <kbd>⏎ Enter</kbd>. Danach kannst du `code` in der Kommandozeile verwenden.
 
 ## Autovervollständigung
 
