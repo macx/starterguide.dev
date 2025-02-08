@@ -7,6 +7,12 @@ import { remarkWidont } from './remark-plugins/remark-widont.mjs'
 // https://astro.build/config
 export default defineConfig({
   site: 'https://starterguide.dev',
+  redirects: {
+    '/guides/command-line': {
+      status: 301,
+      destination: '/guides/terminal'
+    }
+  },
   integrations: [
     starlight({
       title: 'StarterGuide.dev',
@@ -39,7 +45,7 @@ export default defineConfig({
           collapsed: false,
           items: [
             { label: 'Entwicklungsumgebung', slug: 'guides/setup' },
-            { label: 'Kommandozeile', slug: 'guides/command-line' },
+            { label: 'Terminal', slug: 'guides/terminal' },
             {
               label: 'Homebrew und Chocolatey',
               slug: 'guides/homebrew-chocolatey'

@@ -1,6 +1,6 @@
 ---
-title: Arbeiten mit der Kommandozeile
-description: Eine Einführung in die Benutzung der Kommandozeile, auch command line, shell, terminal und bash genannt.
+title: Arbeiten mit dem Terminal
+description: Eine Einführung in die Benutzung des Terminals, auch command line, shell und bash genannt.
 ---
 
 import { Image } from 'astro:assets'
@@ -10,17 +10,26 @@ import Lead from '@components/Lead.astro'
 import { FileTree, Tabs, TabItem, Steps } from '@astrojs/starlight/components'
 
 <Lead>
-  Mit der Kommandozeile kannst du auf Textbasis mit deinem Computer
-  interagieren, in dem du Befehle eingibst und dieser darauf reagiert.
+  Mit dem Terminal kannst du auf Textbasis mit deinem Computer interagieren,
+  indem du Befehle eingibst und dieser darauf reagiert.
 </Lead>
 
-<Image src={commandLineImage} alt='FmacOS Terminal' width='720' format='webp' />
+Wenn wir über das Terminal reden, fallen da oft auch Begriffe wie **command line**, **shell**, **terminal** und **bash**. Kommandozeile und Terminal werden oft synonym verwendet, bezeichnen aber eigentlich leicht unterschiedliche Dinge. Die Kommandozeile ist die textbasierte Schnittstelle, in der du Befehle eingibst. Das Terminal ist die Anwendung, in der du mit der Kommandozeile interagierst. Es stellt das Fenster und die Umgebung bereit, in der du deine Befehle eingeben und die Ergebnisse sehen kannst.
 
-Die Kommdozeile wird auch **command line**, **shell**, **terminal** und **bash** genannt. Hier gibst du Befehle ein, die dein Computer ausführt.
+<p>
+  <Image
+    src={commandLineImage}
+    alt='FmacOS Terminal'
+    width='720'
+    format='webp'
+  />
+</p>
 
-Bei macOS heißt die Kommandozeile **Terminal** und kann über die Suche (Spotlight) oder im Verzeichnis `Programme/Dienstprogramme` gefunden werden. Bei Windows heißt sie **PowerShell** und kann über die Suche oder das Startmenü aufgerufen werden.
+Zusätzlich zum Terminal gibt es noch die Shell. Die Shell ist ein Programm, das deine Befehle interpretiert und ausführt. Es gibt verschiedene Shells, wie zum Beispiel die Bash (häufig unter macOS und Linux verwendet), die Zsh oder die PowerShell (unter Windows). Jede Shell hat ihre eigenen Befehle und Funktionen.
 
-In beiden Fällen öffnet sich ein Fenster, das deine Befehle erwartet. Am Anfang steht immer ein sogenannter Command-Promt, hier gekennzeichnet als `$`:
+Bei macOS findest du das Terminal über die Suche (Spotlight) oder im Verzeichnis `Programme/Dienstprogramme`. Bei Windows heißt das Terminal **PowerShell**, die du über die Suche und das Startmenü aufrufen kannst.
+
+In beiden Fällen öffnet sich ein Fenster, das deine Befehle erwartet. Am Anfang steht immer ein sogenannter Command-Prompt, hier gekennzeichnet als `$`:
 
 ```shell
 $
@@ -37,20 +46,20 @@ $ echo hallo
 hallo
 ```
 
-Das ist ein einfacher Befehl, der das Wort „hallo“ ausgibt. Das mag zunächst nicht sehr nützlich erscheinen, zeigt aber ein wichtiges Konzept. Auf der Kommandozeile gibst du **Befehle** ein, wie `echo`. Diese Befehle nehmen **Argumente** entgegen, wie `hallo`.
+Das ist ein einfacher Befehl, der das Wort „hallo“ ausgibt. Das mag zunächst nicht sehr nützlich erscheinen, zeigt aber ein wichtiges Konzept. Im Terminal gibst du **Befehle** ein, wie `echo`. Diese Befehle nehmen **Argumente** entgegen, wie `hallo`.
 
-Schauen wir uns nun an, was du noch alles mit der Kommandozeile machen kannst.
+Schauen wir uns nun an, was du noch alles mit dem Terminal machen kannst.
 
 ## Grundlagen
 
-In der Kommandozeile arbeitest du immer in einem **Verzeichnis** bzw. einem „Ordner“. Um zu sehen, in welchem Verzeichnis du dich gerade befindest, gebe folgenden Befehl ein:
+Im Terminal arbeitest du immer in einem **Verzeichnis** bzw. einem „Ordner“. Um zu sehen, in welchem Verzeichnis du dich gerade befindest, gebe folgenden Befehl ein:
 
 ```shell
 $ pwd
 /Users/starterguide
 ```
 
-`pwd` ist die Abkürzung für „print working directory“. Standardmäßig startet die Kommandozeile immer in deinem **Home-Verzeichnis**, das nach deinem Anmeldenamen benannt ist. Das ist das gleiche Verzeichnis, das deinen `Dokumente`-Ordner auf macOS, bzw. `Benutzer` auf Windows enthält, also bist du damit wahrscheinlich vertraut.
+`pwd` ist die Abkürzung für „print working directory“. Standardmäßig startet das Terminal immer in deinem **Home-Verzeichnis**, das nach deinem Anmeldenamen benannt ist. Das ist das gleiche Verzeichnis, das deinen `Dokumente`-Ordner auf macOS, bzw. `Benutzer` auf Windows enthält, also bist du damit wahrscheinlich vertraut.
 
 ### Inhalte anzeigen
 
@@ -95,7 +104,7 @@ Der einzelne Punkt `.` steht für das **aktuelle Verzeichnis** und der doppelte 
 
 ### Pfade verstehen
 
-Um effektiv auf der Kommandozeile zu arbeiten, musst du **Pfade** verstehen. Ein Pfad ist eine Reihe von **Verzeichnis**-Namen, die durch `/` getrennt sind und manchmal mit einem Dateinamen enden. Ein **Verzeichnis** ist nur ein anderer Name für einen „Ordner“. Lass uns zu `pwd` zurückkehren:
+Um effektiv auf dem Terminal zu arbeiten, musst du **Pfade** verstehen. Ein Pfad ist eine Reihe von **Verzeichnis**-Namen, die durch `/` getrennt sind und manchmal mit einem Dateinamen enden. Ein **Verzeichnis** ist nur ein anderer Name für einen „Ordner“. Lass uns zu `pwd` zurückkehren:
 
 ```shell
 $ pwd
@@ -209,7 +218,7 @@ Wenn du mit `cd` in ein bestimmtes Verzeichnis wechseln möchtest, musst du den 
 
       3. Wähle „Als Pfadname kopieren“ aus dem Kontextmenü.
 
-      4. Wechsle zurück zur Kommandozeile, gebe `cd` ein und füge den Pfad mit <kbd>⌘ Command</kbd> + <kbd>V</kbd> ein.
+      4. Wechsle zurück zum Terminal, gebe `cd` ein und füge den Pfad mit <kbd>⌘ Command</kbd> + <kbd>V</kbd> ein.
 
           ```shell
           $ cd /Pfad/zum/Verzeichnis
@@ -227,7 +236,7 @@ Wenn du mit `cd` in ein bestimmtes Verzeichnis wechseln möchtest, musst du den 
 
       3. Drücke <kbd>Strg</kbd> + <kbd>C</kbd>, um den Pfad zu kopieren.
 
-      4. Wechsle zurück zur Kommandozeile, gebe `cd` ein und füge den Pfad mit <kbd>Strg</kbd> + <kbd>V</kbd> ein.
+      4. Wechsle zurück zum Terminal, gebe `cd` ein und füge den Pfad mit <kbd>Strg</kbd> + <kbd>V</kbd> ein.
 
           ```shell
           $ cd /Pfad/zum/Verzeichnis
@@ -240,17 +249,17 @@ Wenn du mit `cd` in ein bestimmtes Verzeichnis wechseln möchtest, musst du den 
 
 ### Pfad in VS Code öffnen
 
-Wenn du den aktuellen Pfad in Visual Studio Code öffnen möchtest, kannst du das auch direkt aus der Kommandozeile heraus tun. Gebe dazu einfach `code` und den Pfad ein:
+Wenn du den aktuellen Pfad in Visual Studio Code öffnen möchtest, kannst du das auch direkt aus dem Terminal heraus tun. Gebe dazu einfach `code` und den Pfad ein:
 
 ```shell
 $ code .
 ```
 
-Damit das funktioniert, musst du in VS Code zunächst die Shell Command installieren. Das geht über das Menü „Command Palette“ mit <kbd>⌘ Command</kbd> + <kbd>⇧ Shift</kbd> + <kbd>P</kbd> (macOS) oder <kbd>Strg</kbd> + <kbd>⇧ Shift</kbd> + <kbd>P</kbd> (Windows) und der Suche nach „Shell Command: Install 'code' command in PATH“. Klicke auf den Eintrag oder bestätige mit <kbd>⏎ Enter</kbd>. Danach kannst du `code` in der Kommandozeile verwenden.
+Damit das funktioniert, musst du in VS Code zunächst die Shell Command installieren. Das geht über das Menü „Command Palette“ mit <kbd>⌘ Command</kbd> + <kbd>⇧ Shift</kbd> + <kbd>P</kbd> (macOS) oder <kbd>Strg</kbd> + <kbd>⇧ Shift</kbd> + <kbd>P</kbd> (Windows) und der Suche nach „Shell Command: Install 'code' command in PATH“. Klicke auf den Eintrag oder bestätige mit <kbd>⏎ Enter</kbd>. Danach kannst du `code` im Terminal verwenden.
 
 ## Autovervollständigung
 
-Auch mit deiner Kentniss von `~` und `..`, wirst du immer noch viele Verzeichnisnamen eingeben müssen. Glücklicherweise unterstützt die Kommandozeile die Autovervollständigung, sowohl für Befehle, als auch für Verzeichnisse. Um dies in Aktion zu sehen, gib dies ein, aber drücke nach dem zweiten Befehl nicht die Eingabetaste, sondern die Tabulatortaste <kbd>⇥ Tab</kbd>, die im zweiten Befehl angegeben ist. (Gib nicht `[TAB]` ein.)
+Auch mit deiner Kentniss von `~` und `..`, wirst du immer noch viele Verzeichnisnamen eingeben müssen. Glücklicherweise unterstützt das Terminal die Autovervollständigung, sowohl für Befehle, als auch für Verzeichnisse. Um dies in Aktion zu sehen, gib dies ein, aber drücke nach dem zweiten Befehl nicht die Eingabetaste, sondern die Tabulatortaste <kbd>⇥ Tab</kbd>, die im zweiten Befehl angegeben ist. (Gib nicht `[TAB]` ein.)
 
 ```shell
 $ cd ~/Proj[TAB]
@@ -260,7 +269,7 @@ Die Taste <kbd>⇥ Tab</kbd> vervollständigt `Proj` automatisch zu `Projects/`.
 
 ## Inhalte öffnen
 
-Wenn du die Maus schon einmal beiseite gelegt hast und dich in der Kommandozeile befindest, möchtest du vielleicht von hier aus auch Dateien oder Verzeichnisse öffnen. Das geht mit dem Befehl `open` unter macOS und `explorer` unter Windows.
+Wenn du die Maus schon einmal beiseite gelegt hast und dich im Terminal befindest, möchtest du vielleicht von hier aus auch Dateien oder Verzeichnisse öffnen. Das geht mit dem Befehl `open` unter macOS und `explorer` unter Windows.
 
 ```shell
 $ open .
@@ -271,14 +280,14 @@ Der Punkt `.` steht für das **aktuelle Verzeichnis** und öffnet es im Finder, 
 
 ### Mit VS Code öffnen
 
-Du kannst deine Dateien oder Verzeichnisse auch direkt über die Kommandozeile in Visual Studio Code öffnen. Dazu musst du den Befehl `code` verwenden:
+Du kannst deine Dateien oder Verzeichnisse auch direkt über das Terminal in Visual Studio Code öffnen. Dazu musst du den Befehl `code` verwenden:
 
 ```shell
 $ code .
 $ code README.md
 ```
 
-Damit das funktioniert, musst du in VS Code zunächst die Shell Command installieren. Das geht über das Menü „Command Palette“ mit <kbd>⌘ Command</kbd> + <kbd>⇧ Shift</kbd> + <kbd>P</kbd> (macOS) oder <kbd>Strg</kbd> + <kbd>⇧ Shift</kbd> + <kbd>P</kbd> (Windows) und der Suche nach „Shell Command: Install 'code' command in PATH“. Klicke auf den Eintrag oder bestätige mit <kbd>⏎ Enter</kbd>. Danach kannst du `code` in der Kommandozeile verwenden.
+Damit das funktioniert, musst du in VS Code zunächst die Shell Command installieren. Das geht über das Menü „Command Palette“ mit <kbd>⌘ Command</kbd> + <kbd>⇧ Shift</kbd> + <kbd>P</kbd> (macOS) oder <kbd>Strg</kbd> + <kbd>⇧ Shift</kbd> + <kbd>P</kbd> (Windows) und der Suche nach „Shell Command: Install 'code' command in PATH“. Klicke auf den Eintrag oder bestätige mit <kbd>⏎ Enter</kbd>. Danach kannst du `code` im Terminal verwenden.
 
 ## Inhalte löschen
 
@@ -315,7 +324,7 @@ Zusammenfassend:
 **Flags** kommen in der Regel, aber nicht immer, vor **Argumenten**.
 
 :::danger
-Anders als die Funkttion „In den Papierkorb verschieben“, gibt es in der Kommandozeile keinen Papierkorb, aus dem du die Datei wiederherstellen kannst. Was du löschst, ist weg.
+Anders als die Funktion „In den Papierkorb verschieben“, gibt es im Terminal keinen Papierkorb, aus dem du die Datei wiederherstellen kannst. Was du löschst, ist weg.
 :::
 
 ## Prozesse abbrechen
@@ -326,11 +335,11 @@ Du kannst den Prozess abbrechen, indem du die <kbd>⌃ Control</kbd> + <kbd>C</k
 
 ## Nützliche Tipps
 
-Desto länger deine Befehle werden, desto nerviger wird es, diese Kommandos zu wiederholen. Zum Glück hilfst uns die Kommandozeile, das zu vermeiden.
+Desto länger deine Befehle werden, desto nerviger wird es, diese Kommandos zu wiederholen. Zum Glück hilfst uns das Terminal, das zu vermeiden.
 
 Drücke die Pfeiltaste nach oben <kbd>↑</kbd>, um den zuletzt ausgeführten Befehl zu wiederholen. Drücke die Taste mehrmals, um durch die letzten Befehle zu blättern. Drücke <kbd>⏎ Enter</kbd>, um den Befehl auszuführen.
 
-Doch was ist, wenn der Befehl, den du suchst schon eine Weile her ist und du ewig blättern müsstest? Drücke in diesem Fall bei macOS die Tasten <kbd>⌘ Command</kbd> + <kbd>R</kbd> bzw. bei Windows <kbd>Strg</kbd> + <kbd>R</kbd> gleichzeitig. Das gestattet dir die „Rückwärtssuche“. Gib einfach Zeichen ein, die in deinem ursprünglichen Befehl vorkamen, und die Kommandozeile wird ihn finden. Wenn du mehrere Befehle mit ähnlichen Namen ausgeführt hast, musst du möglicherweise mehr Zeichen eingeben, um ihn eindeutig zu identifizieren. Sobald du den Befehl gefunden hast, den du möchtest, drücke <kbd>⏎ Enter</kbd>, um ihn auszuführen, oder den Pfeil nach rechts, um ihn in die Befehlszeile zu setzen, aber nicht auszuführen.
+Doch was ist, wenn der Befehl, den du suchst schon eine Weile her ist und du ewig blättern müsstest? Drücke in diesem Fall bei macOS die Tasten <kbd>⌘ Command</kbd> + <kbd>R</kbd> bzw. bei Windows <kbd>Strg</kbd> + <kbd>R</kbd> gleichzeitig. Das gestattet dir die „Rückwärtssuche“. Gib einfach Zeichen ein, die in deinem ursprünglichen Befehl vorkamen, und das Terminal wird ihn finden. Wenn du mehrere Befehle mit ähnlichen Namen ausgeführt hast, musst du möglicherweise mehr Zeichen eingeben, um ihn eindeutig zu identifizieren. Sobald du den Befehl gefunden hast, den du möchtest, drücke <kbd>⏎ Enter</kbd>, um ihn auszuführen, oder den Pfeil nach rechts, um ihn in die Befehlszeile zu setzen, aber nicht auszuführen.
 
 ---
 
