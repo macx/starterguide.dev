@@ -11,12 +11,16 @@
     "astro": "astro",
     "validate": "astro check",
     "lint": "prettier --write --plugin-search-dir=. .",
-    "release": "pnpm lint && pnpm build && release-it"
+    "release": "pnpm lint && pnpm build && release-it",
+    "postinstall": "playwright install chromium"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
     "@astrojs/starlight": "^0.30.3",
+    "@beoe/cache": "^0.1.0",
+    "@beoe/rehype-mermaid": "^0.3.0",
     "@fontsource/ibm-plex-sans": "^5.1.0",
+    "@playwright/test": "^1.50.1",
     "astro": "^5.1.1",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.49",

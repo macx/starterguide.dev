@@ -1,0 +1,81 @@
+---
+title: Node.js und Paketmanager
+description: So installierst du Node.js, Corepack, Git und Package Manager.
+tableOfContents:
+  minHeadingLevel: 2
+  maxHeadingLevel: 3
+---
+
+import Lead from '@components/Lead.astro'
+import {
+  Card,
+  CardGrid,
+  LinkCard,
+  Tabs,
+  TabItem
+} from '@astrojs/starlight/components'
+
+<Lead>
+  Installiere die notwendigen Werkzeuge, um mit der Entwicklung zu beginnen.
+</Lead>
+
+:::note
+Wir arbeiten im **Terminal** mit Befehlen, die du ausführen musst. Wenn du nicht weißt, wie das geht, schau dir die [Einführung ins Terminal](/guides/terminal) an.
+:::
+
+## Node.js
+
+Node.js ist eine Laufzeitumgebung, die es ermöglicht, JavaScript-Code außerhalb des Browsers auszuführen. Bei der Installation wird dir auch der Node Package Manager (npm) eingerichtet, der die Installation und Verwaltung von JavaScript-Bibliotheken ermöglicht.
+
+Die Installation ist je nach Betriebssystem unterschiedlich.
+
+<Tabs>
+  <TabItem label="macOS">
+  Die einfachste Möglichkeit, Node.js für macOS zu installieren, ist über [Homebrew](/guides/homebrew-chocolatey), einem Paketmanager für macOS. Wenn du den zuvor eingerichtet hast, führe zur Installation von Node.js folgenden Befehl im Terminal aus:
+
+```shell
+brew install node@22
+```
+
+Alternativ kannst du Node.js auch manuell installieren. Lade dir dazu den [Node.js-Installer](https://nodejs.org/en/download/prebuilt-installer) in der <abbr title="Long Termin Support">LTS</abbr>-Version herunter und führe die Installation durch.
+
+Wenn du Node.js installiert hast, kannst du im Terminal überprüfen, ob die Installation erfolgreich war oder direkt mit dem Website-Starterkit fortfahren.
+
+  </TabItem>
+
+  <TabItem label="Windows">
+    Die einfachste Möglichkeit, Node.js für Windows zu installieren, ist über das Installationspaket. Lade dir jetzt Node.js in der LTS-Version (Long Term Support) von der offiziellen [Node.js-Website](https://nodejs.org/en/download/prebuilt-installer) herunter und installiere es.
+
+Während der Installation sind ein paar Dinge zu beachten: Lasse die folgende Vorauswahl unverändert und klicke auf <kbd>Next</kbd>.
+
+![Node.js Installer](../../../assets/nodejs-installer.png)
+
+Wähle im folgenden Dialog die Checkbox aus, um weitere Tools wie [Chocolatey](/guides/homebrew-chocolatey) zu installieren, und klicke auf <kbd>Next</kbd>. Diese können bei manchen Anwendungen hilfreich sein.
+
+![Node.js Installer](../../../assets/nodejs-tools.png)
+
+Nach der erfolgreichen Installation öffnet sich das Terminal zur Installation der zuvor ausgewählten Tools. Starte die Installation durch Drücken einer beliebigen Taste.
+
+![Node.js Installer](../../../assets/nodejs-command.png)
+
+:::note
+Lass dich von den Statusinformationen und Warnungen im Installationsprozess nicht irritieren und gebe der Installation ein paar Minuten Zeit, bevor du das Fenster schließt.
+:::
+
+#### Ausführung von Scripten erlauben
+
+Windows blockiert standardmäßig das Ausführen von Skripten in der PowerShell. Um das zu ändern, öffne die PowerShell als Administrator und führe den folgenden Befehl aus:
+
+```shell
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+
+Wenn du Node.js installiert hast, kannst du im Terminal überprüfen, ob die Installation erfolgreich war oder direkt mit dem Website-Starterkit fortfahren.
+
+  </TabItem>
+</Tabs>
+
+<CardGrid>
+  <LinkCard title='Installation überprüfen' href='/guides/checks' />
+  <LinkCard title='Zum Website-Starterkit' href='/starterkit/intro' />
+</CardGrid>

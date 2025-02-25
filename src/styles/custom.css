@@ -42,6 +42,12 @@
   --clr-kb-shadow: 0 1px 1px rgba(255, 255, 255, 0.2),
     0 2px 0 0 rgba(255, 255, 255, 0.1) inset;
 
+  &[data-theme='dark'] {
+    .beoe-light {
+      display: none;
+    }
+  }
+
   &[data-theme='light'] {
     --sl-color-accent-low: #b0deff;
     --sl-color-accent: #0073aa;
@@ -61,6 +67,10 @@
     --clr-kb-border: #b4b4b4;
     --clr-kb-shadow: 0 1px 1px rgba(0, 0, 0, 0.2),
       0 2px 0 0 rgba(255, 255, 255, 0.7) inset;
+
+    .beoe-dark {
+      display: none;
+    }
   }
 }
 
@@ -84,6 +94,7 @@ h2,
 h3,
 h4 {
   font-weight: var(--sl-fw-bold);
+  /* text-wrap: pretty; */
 }
 
 .sl-container {
@@ -111,6 +122,20 @@ h4 {
   h4,
   h5 {
     margin-block: 1.5em 0.5em;
+  }
+
+  h2,
+  h3 {
+    max-width: min(30ch, 100%);
+    text-wrap: pretty;
+  }
+
+  .beoe.mermaid {
+    margin-block-end: var(--sp);
+
+    img {
+      margin-block: 0;
+    }
   }
 }
 
@@ -189,4 +214,22 @@ h4 {
   margin-inline: 0.3ch;
   white-space: nowrap;
   vertical-align: middle;
+}
+
+.flowchart {
+  .edgeLabel {
+    background-color: red;
+  }
+}
+
+.columns {
+  column-width: 30rem;
+  column-gap: var(--sp-content);
+}
+
+abbr {
+  cursor: help;
+  text-decoration-style: wavy;
+  text-decoration-color: var(--sl-color-accent);
+  /* text-decoration: underline; */
 }

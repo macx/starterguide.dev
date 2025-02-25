@@ -1,0 +1,37 @@
+---
+title: Corepack
+description: Corepack
+tableOfContents:
+  minHeadingLevel: 2
+  maxHeadingLevel: 3
+---
+
+import Lead from '@components/Lead.astro'
+import {
+  Card,
+  CardGrid,
+  LinkCard,
+  Tabs,
+  TabItem
+} from '@astrojs/starlight/components'
+
+## Corepack
+
+Viele EntwicklerInnen installieren Package Manager wie npm, yarn oder pnpm einmal auf ihrem System und steuern damit alle Projekte. Das kann schnell zu Inkompatibilitäten führen, insbesondere wenn du aktuelle und ältere Projekte gleichzeitig betreust. Im schlimmsten Fall kannst du nach dem Update des Package Managers oder deines Betriebssystems ein Projekt nicht mehr starten.
+
+Hier kommt das mit Node.js mitgelieferte [Corepack](https://github.com/nodejs/corepack#-corepack) ins Spiel. Es fungiert als Vermittler zwischen deinem Projekt und dem Package Manager, sodass du Projekte unabhängig voneinander betreiben kannst. Corepack ermöglicht es dir, den Package Manager und dessen Version auf Projektbasis festzulegen.
+
+Wenn du Node.js installiert hast, ist auch Corepack bereits installiert. Aktiviere es mit dem folgenden Befehl:
+
+```shell
+corepack enable
+```
+
+Corepack erstellt daraufhin sogenannte „Shims“ für die unterstützten Paketmanager. Shims sind kleine Scripte, die den für dein Projekt festgelegten Package Manager in der festgelegten Version automatisch herunterladen, sollte dieser nicht vorliegen.
+
+Installiere dir bitte als nächstes Git. Um auf Nummer Sicher zu gehen, kannst du die Installation auch überprüfen und dann hierher zurückkehren.
+
+<CardGrid>
+  <LinkCard title='Git installieren' href='#git' />
+  <LinkCard title='Installation überprüfen' href='/guides/checks' />
+</CardGrid>

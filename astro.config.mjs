@@ -3,6 +3,10 @@ import { defineConfig } from 'astro/config'
 import starlight from '@astrojs/starlight'
 
 import { remarkWidont } from './remark-plugins/remark-widont.mjs'
+import rehypeMermaid from '@beoe/rehype-mermaid'
+import { getCache } from '@beoe/cache'
+
+const cache = await getCache()
 
 // https://astro.build/config
 export default defineConfig({
@@ -44,12 +48,18 @@ export default defineConfig({
           label: 'Anleitungen',
           collapsed: false,
           items: [
-            { label: 'Entwicklungsumgebung', slug: 'guides/setup' },
-            { label: 'Terminal', slug: 'guides/terminal' },
+            { label: 'Entwick­lungs­umgebung', slug: 'guides/setup' },
             {
-              label: 'Homebrew und Chocolatey',
-              slug: 'guides/homebrew-chocolatey'
+              label: 'Installation',
+              items: [
+                { label: 'Node.js und Paketmanager', slug: 'guides/nodejs' },
+                {
+                  label: 'Homebrew und Chocolatey',
+                  slug: 'guides/homebrew-chocolatey'
+                }
+              ]
             },
+            { label: 'Einführung ins Terminal', slug: 'guides/terminal' },
             { label: 'Installation überprüfen', slug: 'guides/checks' }
           ]
         },
@@ -80,6 +90,18 @@ export default defineConfig({
     })
   ],
   markdown: {
+    rehypePlugins: [
+      [
+        rehypeMermaid,
+        {
+          strategy: 'file',
+          fsPath: 'public/beoe',
+          webPath: '/beoe',
+          darkScheme: 'class',
+          cache
+        }
+      ]
+    ],
     remarkPlugins: [remarkWidont]
   },
   experimental: {

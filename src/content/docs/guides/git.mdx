@@ -1,0 +1,60 @@
+---
+title: Git
+description: Git
+tableOfContents:
+  minHeadingLevel: 2
+  maxHeadingLevel: 3
+---
+
+import Lead from '@components/Lead.astro'
+import {
+  Card,
+  CardGrid,
+  LinkCard,
+  Tabs,
+  TabItem
+} from '@astrojs/starlight/components'
+
+## Git
+
+Git ist ein [Versionskontrollsystem](https://git-scm.com/), das verwendet wird, um Änderungen an Codeprojekten zu verfolgen, Zusammenarbeit zwischen verschiedenen EntwicklerInnen zu ermöglichen und verschiedene Versionen des Codes zu verwalten. Es wird aber auch dazu genutzt, um Softwarepakete und Bibliotheken von Repositorys zu installieren. Und genau das werden wir in Zukunft häufiger tun.
+
+Auch hier unterscheidet sich die Installationen je nach Betriebssystem.
+
+<Tabs>
+  <TabItem label="macOS">
+Git kann auf mehreren Wegen installiert werden. Die wohl einfachste Methode ist über [Homebrew](/guides/homebrew-chocolatey). Führe dazu den folgenden Befehl im Terminal aus:
+
+```shell
+brew install git
+```
+
+Alternativ kann Git auch über die von Apple bereitgestellten Developer Tools installiert werden, was allerdings ziemlich viel Zeit in Anspruch nehmen wird. Führe dazu den folgenden Befehl im Terminal aus:
+
+```shell
+xcode-select --install
+```
+
+Und falls alle Stricke reißen, kannst du Git auch manuell installieren. Lade dir dazu den [Git-Installer](https://git-scm.com/download/mac) herunter und führe die Installation durch.
+
+  </TabItem>
+  <TabItem label="Windows">
+Ähnlich wie unter macOS gibt es auch für Windows mehrere Möglichkeiten, Git zu installieren. Die einfachste Methode unter Windows ist die über [Chocolatey](/guides/homebrew-chocolatey), das du zuvor über die Installation von Node.js bereits installiert hast. Führe zur Installation von Git mit dem folgenden Befehl in der PowerShell aus:
+
+```shell
+choco install git
+```
+
+Alternativ kannst du Git auch manuell installieren. Lade dir Git von der offiziellen [Git-Website](https://git-scm.com/download/win) herunter und installiere es.
+
+Wenn du gefragt wirst, welcher Standard-Editor verwendet werden soll, wähle `Use Visual Studio Code as Git's default editor` aus, sofern du [Visual Studio Code](https://code.visualstudio.com/) zuvor bereits installiert hast. Wähle bei „Adjusting the name of initial branch“ die Option `Override the default branch name for new repositories`. Alles andere kannst du so lassen, wie vorgeschlagen.
+
+  </TabItem>
+</Tabs>
+
+Nun kannst du mit dem Starterkit eine Website erstellen. Überprüfe, falls notwendig, die Installation und kehre dann hierher zurück.
+
+<CardGrid>
+  <LinkCard title='Zum Starterkit' href='/starterkit/intro' />
+  <LinkCard title='Installation überprüfen' href='/guides/checks' />
+</CardGrid>

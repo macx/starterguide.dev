@@ -1,13 +1,13 @@
 {
   "extends": ["development"],
   "browserslist": [
-    "Chrome > 0 and last 1.5 years",
-    "ChromeAndroid > 0 and last 1.5 years",
-    "Edge > 0 and last 1.5 years",
-    "Firefox > 0 and last 1.5 years",
-    "FirefoxAndroid > 0 and last 1.5 years",
-    "Safari > 0 and last 1.5 years",
-    "iOS > 0 and last 1.5 years",
+    "Chrome > 0 and last 1.0 years",
+    "ChromeAndroid > 0 and last 1.0 years",
+    "Edge > 0 and last 1.0 years",
+    "Firefox > 0 and last 1.0 years",
+    "FirefoxAndroid > 0 and last 1.0 years",
+    "Safari > 0 and last 1.0 years",
+    "iOS > 0 and last 1.0 years",
     "not dead"
   ]
 }

@@ -16,7 +16,7 @@ Bilder, die mit aktuellen Smartphones erstellt werden, sind oft zu groß für da
 Mit einem sogenannten Query-Parameter kannst du die Größe eines Bildes in der URL ändern. Dazu hängst du einfach `?width=400` an die URL des Bildes an, um es auf eine Breite von 400 Pixel zu skalieren. Das funktioniert auch mit der Höhe (`h=300`) oder beidem (`width=400&height=300`).
 
 ```html
-<img src="/src/images/mein-bild.jpg?width=400" alt="Bildbeschreibung" />
+<img src="src/images/mein-bild.jpg?width=400" alt="Bildbeschreibung" />
 ```
 
 Der erste Query-Paramter wird mit einem `?` an die URL angehängt. Weitere Parameter werden mit einem `&` getrennt.
@@ -28,7 +28,7 @@ Du kannst Bilder auch in ein anderes Format konvertieren, um die Dateigröße no
 So wandelst du ein einzelnes Bild in ein anderes Format um:
 
 ```html
-<img src="/src/images/mein-bild.jpg?as=webp" alt="Bildbeschreibung" />
+<img src="src/images/mein-bild.jpg?as=webp" alt="Bildbeschreibung" />
 ```
 
 Erlaubt sind die Bildformate `jpeg` / `jpg`, `png`, `webp` und `avif`.
@@ -37,7 +37,7 @@ Du kannst die Größenänderung und das Konvertieren auch kombinieren:
 
 ```html
 <img
-  src="/src/images/mein-bild.jpg?width=400&height=300&as=webp"
+  src="src/images/mein-bild.jpg?width=400&height=300&as=webp"
   alt="Bildbeschreibung"
 />
 ```
@@ -46,7 +46,7 @@ Du kannst die Größenänderung und das Konvertieren auch kombinieren:
 
 ```html
 <img
-  src="/src/images/mein-bild.jpg?width=400&height=300&as=webp&quality=50"
+  src="src/images/mein-bild.jpg?width=400&height=300&as=webp&quality=50"
   alt="Bildbeschreibung"
 />
 ```
@@ -58,16 +58,16 @@ Das `<picture>`-Element ermöglicht es dir, verschiedene Bildformate und -größ
 ```html
 <picture>
   <source
-    srcset="/src/images/mein-bild.jpg?width=800&as=avif"
+    srcset="src/images/mein-bild.jpg?width=800&as=avif"
     type="image/avif"
   />
   <source
-    srcset="/src/images/mein-bild.jpg?width=800&as=webp"
+    srcset="src/images/mein-bild.jpg?width=800&as=webp"
     type="image/webp"
   />
-  <source srcset="/src/images/mein-bild.jpg?width=800" type="image/jpeg" />
+  <source srcset="src/images/mein-bild.jpg?width=800" type="image/jpeg" />
 
-  <img src="/src/images/mein-bild.jpg?width=400" alt="Bildbeschreibung" />
+  <img src="src/images/mein-bild.jpg?width=400" alt="Bildbeschreibung" />
 </picture>
 ```
 
