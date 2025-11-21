@@ -33,11 +33,23 @@ export default defineConfig({
           lang: 'de'
         }
       },
-      social: {
-        discord: 'https://discord.gg/Kke2BsapYu',
-        codePen: 'https://codepen.io/macx',
-        github: 'https://github.com/macx/starterguide.dev'
-      },
+      social: [
+        {
+          icon: 'discord',
+          label: 'Discord',
+          href: 'https://discord.gg/Kke2BsapYu'
+        },
+        {
+          icon: 'codePen',
+          label: 'CodePen',
+          href: 'https://codepen.io/macx'
+        },
+        {
+          icon: 'github',
+          label: 'GitHub',
+          href: 'https://github.com/macx/starterguide.dev'
+        }
+      ],
       customCss: [
         '@fontsource/ibm-plex-sans/400.css',
         '@fontsource/ibm-plex-sans/600.css',
@@ -53,6 +65,8 @@ export default defineConfig({
               label: 'Installation',
               items: [
                 { label: 'Node.js und Paketmanager', slug: 'guides/nodejs' },
+                { label: 'Corepack', slug: 'guides/corepack' },
+                // { label: 'Git', slug: 'guides/git' },
                 {
                   label: 'Homebrew und Chocolatey',
                   slug: 'guides/homebrew-chocolatey'
@@ -60,7 +74,8 @@ export default defineConfig({
               ]
             },
             { label: 'Einführung ins Terminal', slug: 'guides/terminal' },
-            { label: 'Installation überprüfen', slug: 'guides/checks' }
+            { label: 'Installation überprüfen', slug: 'guides/checks' },
+            { label: 'Probleme beheben', slug: 'guides/troubleshooting' }
           ]
         },
         {
@@ -104,8 +119,5 @@ export default defineConfig({
     ],
     remarkPlugins: [remarkWidont]
   },
-  experimental: {
-    responsiveImages: true,
-    svg: true
-  }
+  experimental: {}
 })

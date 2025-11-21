@@ -15,25 +15,25 @@
     "postinstall": "playwright install chromium"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.4",
-    "@astrojs/starlight": "^0.30.3",
-    "@beoe/cache": "^0.1.0",
-    "@beoe/rehype-mermaid": "^0.3.0",
-    "@fontsource/ibm-plex-sans": "^5.1.0",
-    "@playwright/test": "^1.50.1",
-    "astro": "^5.1.1",
-    "autoprefixer": "^10.4.20",
-    "postcss": "^8.4.49",
-    "sharp": "^0.33.5",
-    "typescript": "^5.7.2",
+    "@astrojs/check": "^0.9.5",
+    "@astrojs/starlight": "^0.36.2",
+    "@beoe/cache": "^0.1.1",
+    "@beoe/rehype-mermaid": "^0.4.2",
+    "@fontsource/ibm-plex-sans": "^5.2.8",
+    "@playwright/test": "^1.56.1",
+    "astro": "^5.15.9",
+    "autoprefixer": "^10.4.22",
+    "postcss": "^8.5.6",
+    "sharp": "^0.34.5",
+    "typescript": "^5.9.3",
     "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
-    "prettier": "^3.4.2",
+    "prettier": "^3.6.2",
     "prettier-config-standard": "^7.0.0",
     "prettier-plugin-astro": "^0.14.1",
-    "release-it": "^17.11.0",
-    "release-it-pnpm": "^4.6.3"
+    "release-it": "^19.0.6",
+    "release-it-pnpm": "^4.6.6"
   },
   "packageManager": "pnpm@9.14.4+sha512.c8180b3fbe4e4bca02c94234717896b5529740a6cbadf19fa78254270403ea2f27d4e1d46a08a0f56c89b63dc8ebfd3ee53326da720273794e6200fcf0d184ab"
 }
