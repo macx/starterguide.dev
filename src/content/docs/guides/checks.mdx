@@ -1,47 +1,37 @@
 ---
-title: Installation überprüfen oder Probleme beheben
+title: Installation überprüfen
 ---
 
 import Lead from '@components/Lead.astro'
 
 <Lead>
   Leicht kann man sich bei der Installation von Software vertun. Hier erfährst
-  du, wie du die Installation von Git, Node.js und Yarn überprüfen kannst und
-  wie du Probleme behebst.
+  du, wie du die Installation von Git, Node.js und Yarn überprüfen kannst.
 </Lead>
-
-Öffne dazu unter macOS der Lizenz das Terminal und unter Windows die PowerShell. Gib dort die folgenden Befehle ein, um die Installation von Git, Node.js und Yarn zu überprüfen.
-
-Die korrekte Installation von Software kannst du überprüfen, wenn du im Terminal die Versionsnummer der Software abfragst. Bekommst du keine Versionsnummer angezeigt, ist die Software nicht korrekt installiert. In diesem Fall solltest du die Installation wiederholen.
-
-:::note
-In den folgenden Abschnitten kennzeichen wir die Befehle mit einem vorangestellten `$`, um auch die Ausgabe entsprechend darstellen zu können. Die Eingabe der Befehle erfolgt ohne das `$`.
-:::
 
 ## Installation überprüfen
 
-Um die erfolgreiche Installation von Package Managern oder allgemein Software zu testen, kannst du die Versionsnummer abfragen. Hier sind die Befehle, die du im Terminal eingeben kannst, um die Installation von Git, Node.js und Yarn zu überprüfen.
+Öffne unter macOS das Terminal und unter Windows die PowerShell. Gib dort die folgenden Befehle ein, um die Installation von Git, Node.js, Yarn und weiteren Tools zu überprüfen.
+
+:::note
+In den folgenden Abschnitten kennzeichnen wir die Befehle mit einem vorangestellten `$`, um auch die Ausgabe entsprechend darstellen zu können. Die Eingabe der Befehle erfolgt ohne das `$`.
+:::
 
 ```shell
-# Überprüfuing von Node.js
+# Überprüfung von Node.js
 $ node -v
-v23.3.0
 
 # Überprüfung von npm
 $ npm -v
-10.9.0
 
 # Überprüfung von Yarn
 $ yarn -v
-4.3.0
 
 # Überprüfung von Corepack
 $ corepack -v
-corepack 0.29.4
 
 # Überprüfung von Git
 $ git -v
-git version 2.39.5 (Apple Git-154)
 
 # Überprüfung von Homebrew (macOS)
 $ brew -v
@@ -50,67 +40,32 @@ $ brew -v
 $ choco -v
 ```
 
-Erhälst du keine Versionsnummer, ist die Software nicht korrekt installiert. In diesem Fall solltest du die Installation wiederholen.
+Erhältst du keine Versionsnummer, ist die Software nicht korrekt installiert. In diesem Fall solltest du die Installation wiederholen.
 
 :::tip
 Wenn du gerade Node.js, Git oder etwas anderes installiert hast, musst du das Terminal schließen und erneut öffnen, damit die Änderungen wirksam werden. Das gilt sowohl für macOS als auch für Windows.
 :::
 
-## Bekannte Fehlermeldungen
+## Hinweise zu Paketmanager-Versionen
 
-Im folgenden Abschnitt behandeln wir häufige Fehlermeldungen und wie du sie beheben kannst.
+Wenn du mit verschiedenen Projekten arbeitest, solltest du darauf achten, nicht mehrere Paketmanager (npm, yarn, pnpm) global installiert zu haben. Für eine saubere Verwaltung empfiehlt sich die Nutzung von Corepack. Mehr dazu findest du im [Corepack-Tutorial](/guides/corepack).
 
-### Program failed to run
+## Fehler beim Anlegen einer Kopie
 
-Windows blockiert standardmäßig das Ausführen von Skripten in der PowerShell. Das sieht dann etwas so aus:
+Wenn du Beispieldateien von deinem Dozenten oder aus einem anderen Projekt kopierst (z. B. für Übungen mit Parcel, Astro oder anderen Tools), solltest du ausschließlich das `src`-Verzeichnis und die `package.json` übernehmen. Kopiere niemals die Verzeichnisse `node_modules`, `.parcel-cache`, `.yarn`, oder Dateien wie `package-lock.json`, `yarn.lock`, `pnpm-lock.yaml` mit.
 
-![](../../../assets/npm-error.png)
+**Vorgehen:**
 
-Um das zu ändern, öffne die PowerShell als Administrator und führe den folgenden Befehl aus:
-
-```shell
-Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
-```
-
-Schließe anschließend die PowerShell und öffne sie erneut. Dann sollltest du dir die Versionsnummern ausgeben lassen können.
-
-### Probleme unter macOS
-
-Auf manchen Rechnern kommt es bei Node unter Umständen zu Problemen bei der Rechtevergabe. Dies kannst du mit dem folgenden Befehl beheben:
+1.  Kopiere das `src`-Verzeichnis und die `package.json` in dein neues Projektverzeichnis.
+2.  Lösche alle Lock-Dateien (`package-lock.json`, `yarn.lock`, `pnpm-lock.yaml`) und Caches (`node_modules`, `.parcel-cache`, `.yarn`).
+3.  Installiere die Abhängigkeiten neu:
 
 ```shell
-$ sudo chown -R $(whoami) $(npm config get prefix)/{lib/node_modules,bin,share}
+npm install
+# oder
+yarn install
+# oder
+pnpm install
 ```
 
-## Probleme mit dem Starterkit
-
-Auch wenn du mit dem [Starterkit](/starterkit/intro) arbeitest, können Probleme auftreten. Hier sind einige häufige Fehler und wie du sie beheben kannst.
-
-### Falsche Versionen
-
-Falls du die Package Manager npm, yarn oder pnpm bereits systemweit installiert hast, solltest du diese zunächst deinstallieren. Denn das Starterkit verwendet Corepack, um die Package Manager auf Projektbasis zu installieren. Das ist mit global installierten Versionen nicht kompatibel.
-
-So deinstallierst du die Package Manager:
-
-```shell
-# Falls du sie mit npm installiert hast:
-npm uninstall -g npm yarn pnpm
-
-# Falls du sie mit Homebrew installiert hast:
-brew uninstall npm yarn pnpm
-
-# Falls du sie mit Chocolatey installiert hast:
-choco uninstall npm yarn pnpm
-```
-
-### Fehler bei der Kopie
-
-Wenn du dir ein mit dem Starterkit erselltes Projekt von jemanden anderen kopierst, zum Beispiel von deinem Dozenten, kann es zu Problemen kommen. Denn entweder werden die Abhängigkeiten nicht mitkopiert oder sie sind für eine Computerarchitektur bestimmt, die von deinem Rechner abweicht.
-
-Lösche in dem Fall folgende Verzeichnisse und Dateien und starte die Installation erneut:
-
-```shell
-$ rm -rf ./node_modules .yarn.lock && yarn install
-```
-
-Nun sollte das funktioneiren.
+Dadurch werden alle benötigten Pakete passend zu deiner Umgebung frisch installiert und du vermeidest Versionskonflikte oder Fehler durch alte Abhängigkeiten.

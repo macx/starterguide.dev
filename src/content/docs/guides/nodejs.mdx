@@ -1,6 +1,6 @@
 ---
 title: Node.js und Paketmanager
-description: So installierst du Node.js, Corepack, Git und Package Manager.
+description: So installierst du Node.js, Corepack, Git und Paketmanager.
 tableOfContents:
   minHeadingLevel: 2
   maxHeadingLevel: 3
@@ -25,7 +25,7 @@ Wir arbeiten im **Terminal** mit Befehlen, die du ausführen musst. Wenn du nich
 
 ## Node.js
 
-Node.js ist eine Laufzeitumgebung, die es ermöglicht, JavaScript-Code außerhalb des Browsers auszuführen. Bei der Installation wird dir auch der Node Package Manager (npm) eingerichtet, der die Installation und Verwaltung von JavaScript-Bibliotheken ermöglicht.
+Node.js ist eine Laufzeitumgebung, die es ermöglicht, JavaScript-Code außerhalb des Browsers auszuführen. Bei der Installation wird dir auch der Node Paketmanager (npm) eingerichtet, der die Installation und Verwaltung von JavaScript-Bibliotheken ermöglicht.
 
 Die Installation ist je nach Betriebssystem unterschiedlich.
 
@@ -79,3 +79,15 @@ Wenn du Node.js installiert hast, kannst du im Terminal überprüfen, ob die Ins
   <LinkCard title='Installation überprüfen' href='/guides/checks' />
   <LinkCard title='Zum Website-Starterkit' href='/starterkit/intro' />
 </CardGrid>
+
+## Alternative Paketmanager
+
+Neben npm gibt es weitere Paketmanager, die du für die Installation von JavaScript-Bibliotheken verwenden kannst. Das wären zum Beispiel [Yarn](https://yarnpkg.com) oder [pnpm](https://pnpm.io). Beide bieten Vorteile in Bezug auf Geschwindigkeit und zu reduzierendem Speicherplatz.
+
+:::note
+Wenn du bisher noch nicht mit einem Paketmanager gearbeitet hast, empfehle ich dir die Verwendung von npm.
+:::
+
+Solltest du dich für Yarn oder pnpm entscheiden, siehe dir auf jeden Fall den nächsten Abschnitt [Corepack](/guides/corepack) an.
+
+Mit Corepack kannst du den Paketmanager auf Projektbasis festlegen. Das bedeutet, dass du nicht einen Paketmanager in einer Vesion für all deine Website-Projekte verwendest, sondern jedes Projekt seine eigene Paketmanager-Version verwendet. Das beugt Konflikten vor und sorgt für eine saubere Projektstruktur.

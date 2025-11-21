@@ -39,8 +39,8 @@
   --clr-kb-bg: rgb(255 255 255 / 0.05);
   --clr-kb-text: var(--clr-text);
   --clr-kb-border: rgb(255 255 255 / 0.3);
-  --clr-kb-shadow: 0 1px 1px rgba(255, 255, 255, 0.2),
-    0 2px 0 0 rgba(255, 255, 255, 0.1) inset;
+  --clr-kb-shadow:
+    0 1px 1px rgba(255, 255, 255, 0.2), 0 2px 0 0 rgba(255, 255, 255, 0.1) inset;
 
   &[data-theme='dark'] {
     .beoe-light {
@@ -65,8 +65,8 @@
     --clr-kb-bg: transparent;
     --clr-kb-text: var(--clr-text);
     --clr-kb-border: #b4b4b4;
-    --clr-kb-shadow: 0 1px 1px rgba(0, 0, 0, 0.2),
-      0 2px 0 0 rgba(255, 255, 255, 0.7) inset;
+    --clr-kb-shadow:
+      0 1px 1px rgba(0, 0, 0, 0.2), 0 2px 0 0 rgba(255, 255, 255, 0.7) inset;
 
     .beoe-dark {
       display: none;
@@ -112,22 +112,25 @@ h4 {
 }
 
 /* Override default styles */
-.sl-markdown-content.sl-markdown-content {
+.sl-markdown-content {
   > :is(p, ul, ol) {
     margin-block: 0 1em;
   }
 
-  h2,
-  h3,
-  h4,
-  h5 {
-    margin-block: 1.5em 0.5em;
+  :is(h1, h2, h3, h4, h5, h6) {
+    code {
+      font-size: 0.8em;
+      font-weight: var(--sl-fw);
+    }
   }
 
-  h2,
-  h3 {
-    max-width: min(30ch, 100%);
-    text-wrap: pretty;
+  .sl-heading-wrapper {
+    margin-block: 1.5em 0.5em;
+    h2,
+    h3 {
+      max-width: min(30ch, 100%);
+      text-wrap: pretty;
+    }
   }
 
   .beoe.mermaid {
@@ -225,6 +228,10 @@ h4 {
 .columns {
   column-width: 30rem;
   column-gap: var(--sp-content);
+}
+
+table {
+  margin-block: var(--sp);
 }
 
 abbr {

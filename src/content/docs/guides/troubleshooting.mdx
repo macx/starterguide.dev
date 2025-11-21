@@ -1,0 +1,171 @@
+---
+title: Probleme beheben
+description: Hier findest du Lösungen für häufige Probleme bei der Installation und Nutzung von Node.js und npm.
+---
+
+import Lead from '@components/Lead.astro'
+import { Tabs, TabItem } from '@astrojs/starlight/components'
+
+<Lead>
+  Es ist ganz normal, dass bei der Entwicklung mit Node.js und npm Fehler
+  auftreten. Hier erklären wir dir, warum das passiert und wie du die häufigsten
+  Probleme löst.
+</Lead>
+
+Fehler können viele Ursachen haben: fehlende Berechtigungen, blockierte Ports, inkompatible Versionen oder fehlende System-Tools. Wir haben die Lösungen für die häufigsten Probleme hier gesammelt.
+
+## Häufige Fehler
+
+Hier findest du die Fehler, die am häufigsten auftreten, sortiert nach Wahrscheinlichkeit.
+
+### 1. Berechtigungen & Skripte
+
+Oft scheitert es schon ganz am Anfang: Du darfst keine Skripte ausführen oder hast keine Schreibrechte.
+
+<Tabs>
+  <TabItem label="macOS">
+    **Fehlende Rechte (EACCES)**
+
+    Auf manchen Rechnern kommt es bei Node unter Umständen zu Problemen bei der Rechtevergabe. Dies kannst du mit dem folgenden Befehl beheben:
+
+    ```shell
+    $ sudo chown -R $(whoami) $(npm config get prefix)/{lib/node_modules,bin,share}
+    ```
+
+  </TabItem>
+
+  <TabItem label="Windows">
+    **Skripte können nicht ausgeführt werden**
+
+    Windows blockiert standardmäßig das Ausführen von Skripten in der PowerShell. Das sieht dann etwas so aus:
+
+    ![](../../../assets/npm-error.png)
+
+    Um das zu ändern, öffne die PowerShell als Administrator und führe den folgenden Befehl aus:
+
+    ```shell
+    Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+    ```
+
+    Schließe anschließend die PowerShell und öffne sie erneut.
+
+  </TabItem>
+</Tabs>
+
+### 2. Port bereits belegt (`EADDRINUSE`)
+
+Wenn du versuchst, deinen Entwicklungsserver zu starten (z. B. mit `npm start` oder `npm run dev`), und eine Fehlermeldung mit `EADDRINUSE` erhältst, bedeutet das, dass der Port (oft 3000 oder 8080) bereits von einem anderen Programm verwendet wird.
+
+**Lösung:**
+
+Schließe andere Terminal-Fenster, in denen vielleicht noch ein Server läuft.
+
+**Prozess beenden:**
+Du kannst den blockierenden Prozess beenden. Am einfachsten geht das mit `npx`:
+
+```shell
+npx kill-port 3000
+```
+
+(Ersetze `3000` durch den Port, der in der Fehlermeldung steht).
+
+Alternativ kannst du es manuell machen:
+
+<Tabs>
+  <TabItem label="macOS">
+   1. Finde die Prozess-ID (PID) heraus:
+     ```shell
+     lsof -i :3000
+     ```
+   2. Beende den Prozess (ersetze `<PID>` mit der Nummer aus der Spalte `PID`):
+     ```shell
+     kill -9 <PID>
+     ```
+  </TabItem>
+  <TabItem label="Windows">
+   1. Finde die Prozess-ID (PID) heraus:
+     ```shell
+     netstat -ano | findstr :3000
+     ```
+   2. Beende den Prozess (ersetze `<PID>` mit der Nummer ganz rechts in der Zeile):
+     ```shell
+     taskkill /PID <PID> /F
+     ```
+  </TabItem>
+</Tabs>
+
+### 3. Abhängigkeitskonflikte (`ERESOLVE`)
+
+Manchmal können sich verschiedene Pakete nicht auf eine gemeinsame Version einer Abhängigkeit einigen. Du siehst dann einen Fehler, der mit `ERESOLVE unable to resolve dependency tree` beginnt.
+
+**Lösung:**
+
+- Versuche den Befehl mit dem Zusatz `--legacy-peer-deps` auszuführen:
+  ```shell
+  npm install --legacy-peer-deps
+  ```
+- Überprüfe deine `package.json` auf widersprüchliche Versionen.
+
+### 4. Kompilierungsfehler (`gyp ERR` / `node-gyp`)
+
+Manchmal schlägt die Installation von npm-Paketen fehl und du siehst rote Fehlermeldungen, die `gyp ERR!` oder `node-gyp` enthalten.
+
+**Das Problem:**
+Manche Pakete (z. B. für Bildbearbeitung oder Hardware-Zugriff) nutzen Code, der in C oder C++ geschrieben ist. Dafür fehlt dir wahrscheinlich der Compiler.
+
+**Die Lösung (nur macOS):**
+Du brauchst die **Xcode Command Line Tools**.
+
+1.  Öffne dein Terminal.
+2.  Führe diesen Befehl aus:
+    ```shell
+    xcode-select --install
+    ```
+3.  Folge den Anweisungen.
+
+**Falls das nicht klappt (z. B. bei älteren macOS-Versionen):**
+
+1.  Gehe auf [Apple Developer Downloads](https://developer.apple.com/download/all/?q=Command%20Line%20Tools).
+2.  Melde dich mit deiner Apple-ID an.
+3.  Suche nach „Command Line Tools“ passend zu deiner macOS-Version und installiere sie.
+
+## Probleme mit dem Starterkit
+
+Auch wenn du mit dem [Starterkit](/starterkit/intro) arbeitest, können Probleme auftreten.
+
+### Falsche Versionen
+
+Falls du die Paketmanager npm, yarn oder pnpm bereits systemweit installiert hast, solltest du diese zunächst deinstallieren. Denn das Starterkit verwendet Corepack, um die Paketmanager auf Projektbasis zu installieren. Das ist mit global installierten Versionen nicht kompatibel.
+
+So deinstallierst du die Paketmanager:
+
+```shell
+# Falls du sie mit npm installiert hast:
+npm uninstall -g npm yarn pnpm
+
+# Falls du sie mit Homebrew installiert hast:
+brew uninstall npm yarn pnpm
+
+# Falls du sie mit Chocolatey installiert hast:
+choco uninstall npm yarn pnpm
+```
+
+### Fehler beim Anlegen einer Kopie
+
+Wenn du Beispieldateien von deinem Dozenten oder aus einem anderen Projekt kopierst (z. B. für Übungen mit Parcel, Astro oder anderen Tools), solltest du ausschließlich das `src`-Verzeichnis und die `package.json` übernehmen. Kopiere niemals die Verzeichnisse `node_modules`, `.parcel-cache`, `.yarn`, oder Dateien wie `package-lock.json`, `yarn.lock`, `pnpm-lock.yaml` mit.
+
+**Vorgehen:**
+
+1.  Kopiere das `src`-Verzeichnis und die `package.json` in dein neues Projektverzeichnis.
+2.  Lösche alle Lock-Dateien (`package-lock.json`, `yarn.lock`, `pnpm-lock.yaml`) und Caches (`node_modules`, `.parcel-cache`, `.yarn`).
+3.  Installiere die Abhängigkeiten neu:
+
+```shell
+npm install
+# oder
+yarn install
+# oder
+pnpm install
+```
+
+Dadurch werden alle benötigten Pakete passend zu deiner Umgebung frisch installiert und du vermeidest Versionskonflikte oder Fehler durch alte Abhängigkeiten.
