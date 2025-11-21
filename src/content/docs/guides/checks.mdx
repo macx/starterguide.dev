@@ -13,31 +13,21 @@ import Lead from '@components/Lead.astro'
 
 Öffne unter macOS das Terminal und unter Windows die PowerShell. Gib dort die folgenden Befehle ein, um die Installation von Git, Node.js, Yarn und weiteren Tools zu überprüfen.
 
-:::note
-In den folgenden Abschnitten kennzeichnen wir die Befehle mit einem vorangestellten `$`, um auch die Ausgabe entsprechend darstellen zu können. Die Eingabe der Befehle erfolgt ohne das `$`.
-:::
-
 ```shell
 # Überprüfung von Node.js
-$ node -v
+node -v
 
 # Überprüfung von npm
-$ npm -v
-
-# Überprüfung von Yarn
-$ yarn -v
+npm -v
 
 # Überprüfung von Corepack
-$ corepack -v
-
-# Überprüfung von Git
-$ git -v
+corepack -v
 
 # Überprüfung von Homebrew (macOS)
-$ brew -v
+brew -v
 
 # Überprüfung von Chocolatey (Windows)
-$ choco -v
+choco -v
 ```
 
 Erhältst du keine Versionsnummer, ist die Software nicht korrekt installiert. In diesem Fall solltest du die Installation wiederholen.
@@ -62,10 +52,6 @@ Wenn du Beispieldateien von deinem Dozenten oder aus einem anderen Projekt kopie
 
 ```shell
 npm install
-# oder
-yarn install
-# oder
-pnpm install
 ```
 
 Dadurch werden alle benötigten Pakete passend zu deiner Umgebung frisch installiert und du vermeidest Versionskonflikte oder Fehler durch alte Abhängigkeiten.

@@ -42,7 +42,7 @@ In den folgenden Abschnitten kennzeichen wir die Befehle mit einem vorangestellt
 Probiere es doch gleich einmal aus. Gebe bitte ohne das `$` den Befehl `echo hallo` ein und drücke <kbd>⏎ Enter</kbd> (bzw. Return).
 
 ```shell
-$ echo hallo
+echo hallo
 hallo
 ```
 
@@ -55,7 +55,7 @@ Schauen wir uns nun an, was du noch alles mit dem Terminal machen kannst.
 Im Terminal arbeitest du immer in einem **Verzeichnis** bzw. einem „Ordner“. Um zu sehen, in welchem Verzeichnis du dich gerade befindest, gebe folgenden Befehl ein:
 
 ```shell
-$ pwd
+pwd
 /Users/starterguide
 ```
 
@@ -66,7 +66,7 @@ $ pwd
 Um zu sehen, welche Dateien sich im **aktuellen Arbeitsverzeichnis** befinden, verwende den Befehl `ls`:
 
 ```shell
-$ ls
+ls
 Applications
 Desktop
 Documents
@@ -77,7 +77,7 @@ README.md
 Neben Ordnern und Dateien kann `ls` auch **versteckte Dateien** anzeigen, die mit einem Punkt beginnen. Das sind normalerweise Konfigurationsdateien, die du nicht sehen musst, aber manchmal nützlich sind. Um alle Dateien anzuzeigen, einschließlich der versteckten, verwende das `-a`-Flag:
 
 ```shell
-$ ls -a
+ls -a
 .
 ..
 .Trash
@@ -94,7 +94,7 @@ Das `-a`-Flag ist ein Beispiel für eine **Option**. Eine **Option** ist eine Ar
 Der folgende Befehl zeigt alle Dateien an, einschließlich der versteckten, und gibt zusätzliche Informationen zu jeder Datei aus:
 
 ```shell
-$ ls -la
+ls -la
 drwxr-x---+  79 starterguide  staff    2528 Dec 19 10:59 .
 drwxr-xr-x    5 root  admin             160 Dec 18 20:27 ..
 -rw-r--r--@   1 starterguide  staff    6148 Dec 19 10:59 .DS_Store
@@ -107,15 +107,15 @@ Der einzelne Punkt `.` steht für das **aktuelle Verzeichnis** und der doppelte 
 Um effektiv auf dem Terminal zu arbeiten, musst du **Pfade** verstehen. Ein Pfad ist eine Reihe von **Verzeichnis**-Namen, die durch `/` getrennt sind und manchmal mit einem Dateinamen enden. Ein **Verzeichnis** ist nur ein anderer Name für einen „Ordner“. Lass uns zu `pwd` zurückkehren:
 
 ```shell
-$ pwd
+pwd
 /Users/starterguide
 ```
 
 Lass uns hier ein neues Verzeichnis namens `Projects` erstellen und dann in dieses Verzeichnis wechseln:
 
 ```shell
-$ mkdir Projects
-$ cd Projects
+mkdir Projects
+cd Projects
 ```
 
 Das **aktuelle Arbeitsverzeichnis** ist jetzt `/Users/starterguide/Projects`.
@@ -125,9 +125,9 @@ Das **aktuelle Arbeitsverzeichnis** ist jetzt `/Users/starterguide/Projects`.
 Lass uns hier ein weiteres Verzeichnis namens `Website` erstellen und darin eine Datei namens `README.md`:
 
 ```shell
-$ mkdir Website
-$ cd Website
-$ touch README.md
+mkdir Website
+cd Website
+touch README.md
 ```
 
 Das ganze sieht dann so aus:
@@ -165,7 +165,7 @@ Der erste Pfad ist ein **absoluter** Pfad, was bedeutet, dass er am **Root** mei
 Wie bereits erwähnt, befindet sich im **Home-Verzeichnis** all deine Dokumente und Dateien. Statt den absoluten Pfad zu deinem Home-Verzeichnis zu verwenden, kannst du auch die Tilde `~` verwenden, um dahin zu wechseln:
 
 ```shell
-$ cd ~
+cd ~
 ```
 
 Unter macOS erreichst du die Tilde mit <kbd>⌥ Option</kbd> + <kbd>N</kbd>. Unter Windows befindet sich die Tilde zwischen dem <kbd>Ü</kbd> und der <kbd>Return</kbd>-Taste. Mit der Tastenkombination <kbd>Alt Gr</kbd> + <kbd>+</kbd> kannst du die Tilde eingeben.
@@ -181,7 +181,7 @@ Projects/Website/README.md
 Unabhängig davon, welches Verzeichnis dein aktuelles Arbeitsverzeichnis ist, kannst du zu deinem Verzeichnis wie folgt wechseln:
 
 ```shell
-$ cd ~/Projects/Website
+cd ~/Projects/Website
 ```
 
 ### Pfade vereinfachen
@@ -195,13 +195,13 @@ Die zwei Punkte `..` beziehen sich immer auf das Verzeichnis, das dasjenige enth
 Du kannst mit den zwei Punkten `..` auch in das übergeordnete Verzeichnis wechseln. Um von `~/Projects/Website` zu `~/Projects` zu wechseln, kannst du folgendes eingeben:
 
 ```shell
-$ cd ..
+cd ..
 ```
 
 Oder du gehst zwei Verzeichnisse zurück und wechselst von dort aus in ein anderes Verzeichnis:
 
 ```shell
-$ cd ../../Documents
+cd ../../Documents
 ```
 
 ### Aktuellen Pfad kopieren
@@ -221,7 +221,7 @@ Wenn du mit `cd` in ein bestimmtes Verzeichnis wechseln möchtest, musst du den 
       4. Wechsle zurück zum Terminal, gebe `cd` ein und füge den Pfad mit <kbd>⌘ Command</kbd> + <kbd>V</kbd> ein.
 
           ```shell
-          $ cd /Pfad/zum/Verzeichnis
+          cd /Pfad/zum/Verzeichnis
           ```
     </Steps>
 
@@ -239,7 +239,7 @@ Wenn du mit `cd` in ein bestimmtes Verzeichnis wechseln möchtest, musst du den 
       4. Wechsle zurück zum Terminal, gebe `cd` ein und füge den Pfad mit <kbd>Strg</kbd> + <kbd>V</kbd> ein.
 
           ```shell
-          $ cd /Pfad/zum/Verzeichnis
+          cd /Pfad/zum/Verzeichnis
           ```
 
     </Steps>
@@ -252,7 +252,7 @@ Wenn du mit `cd` in ein bestimmtes Verzeichnis wechseln möchtest, musst du den 
 Wenn du den aktuellen Pfad in Visual Studio Code öffnen möchtest, kannst du das auch direkt aus dem Terminal heraus tun. Gebe dazu einfach `code` und den Pfad ein:
 
 ```shell
-$ code .
+code .
 ```
 
 Damit das funktioniert, musst du in VS Code zunächst die Shell Command installieren. Das geht über das Menü „Command Palette“ mit <kbd>⌘ Command</kbd> + <kbd>⇧ Shift</kbd> + <kbd>P</kbd> (macOS) oder <kbd>Strg</kbd> + <kbd>⇧ Shift</kbd> + <kbd>P</kbd> (Windows) und der Suche nach „Shell Command: Install 'code' command in PATH“. Klicke auf den Eintrag oder bestätige mit <kbd>⏎ Enter</kbd>. Danach kannst du `code` im Terminal verwenden.
@@ -262,7 +262,7 @@ Damit das funktioniert, musst du in VS Code zunächst die Shell Command installi
 Auch mit deiner Kentniss von `~` und `..`, wirst du immer noch viele Verzeichnisnamen eingeben müssen. Glücklicherweise unterstützt das Terminal die Autovervollständigung, sowohl für Befehle, als auch für Verzeichnisse. Um dies in Aktion zu sehen, gib dies ein, aber drücke nach dem zweiten Befehl nicht die Eingabetaste, sondern die Tabulatortaste <kbd>⇥ Tab</kbd>, die im zweiten Befehl angegeben ist. (Gib nicht `[TAB]` ein.)
 
 ```shell
-$ cd ~/Proj[TAB]
+cd ~/Proj[TAB]
 ```
 
 Die Taste <kbd>⇥ Tab</kbd> vervollständigt `Proj` automatisch zu `Projects/`. Von hier aus kannst du ein weiteres Mal die Tabulatortaste drücken und der Pfad wird zu `Projects/Website/` vervollständigt.
@@ -272,8 +272,8 @@ Die Taste <kbd>⇥ Tab</kbd> vervollständigt `Proj` automatisch zu `Projects/`.
 Wenn du die Maus schon einmal beiseite gelegt hast und dich im Terminal befindest, möchtest du vielleicht von hier aus auch Dateien oder Verzeichnisse öffnen. Das geht mit dem Befehl `open` unter macOS und `explorer` unter Windows.
 
 ```shell
-$ open .
-$ open README.md
+open .
+open README.md
 ```
 
 Der Punkt `.` steht für das **aktuelle Verzeichnis** und öffnet es im Finder, bzw. Explorer. Der Befehl `open README.md` öffnet die Datei `README.md` im Standardprogramm, das mit diesem Dateityp verknüpft ist.
@@ -283,8 +283,8 @@ Der Punkt `.` steht für das **aktuelle Verzeichnis** und öffnet es im Finder, 
 Du kannst deine Dateien oder Verzeichnisse auch direkt über das Terminal in Visual Studio Code öffnen. Dazu musst du den Befehl `code` verwenden:
 
 ```shell
-$ code .
-$ code README.md
+code .
+code README.md
 ```
 
 Damit das funktioniert, musst du in VS Code zunächst die Shell Command installieren. Das geht über das Menü „Command Palette“ mit <kbd>⌘ Command</kbd> + <kbd>⇧ Shift</kbd> + <kbd>P</kbd> (macOS) oder <kbd>Strg</kbd> + <kbd>⇧ Shift</kbd> + <kbd>P</kbd> (Windows) und der Suche nach „Shell Command: Install 'code' command in PATH“. Klicke auf den Eintrag oder bestätige mit <kbd>⏎ Enter</kbd>. Danach kannst du `code` im Terminal verwenden.
@@ -296,7 +296,7 @@ Du kannst Dateien und Verzeichnisse löschen, indem du den Befehl `rm` verwendes
 Um auf Nummer sicher zu gehen, dass du auch nur die Datei löscht, die du löschen möchtest, stelle den Punkt `.` voran. Dieser steht für das **aktuelle Verzeichnis**:
 
 ```shell
-$ rm ./test.txt
+rm ./test.txt
 ```
 
 Was ist denn, wenn wir mehrere Dateien auf einmal löschen möchten?
@@ -304,13 +304,13 @@ Was ist denn, wenn wir mehrere Dateien auf einmal löschen möchten?
 Nehmen wir an, wir haben drei Dateien: `test1.txt`, `test2.txt` und `test3.txt`. Um diese drei Dateien zu löschen, können wir das `*`-Symbol verwenden, das als **Glob** oder **Wildcard** bekannt ist. Das `*` bedeutet „alles, was vorher und nachher passt“. Konkret löscht du alle drei Dateien so:
 
 ```shell
-$ rm ./test*.text
+rm ./test*.text
 ```
 
 Auch Verzeichnisse werden mit `rm` gelöscht. Allerdings musst hier einen **Paramter**, ein sogenanntes „Flag“ verwenden:
 
 ```shell
-$ rm -r ./test
+rm -r ./test
 ```
 
 Das `-r` steht für „rekursiv“ und sagt `rm`, dass es sowohl `test` als auch _alles darin_ löschen soll.

@@ -113,7 +113,7 @@ h4 {
 
 /* Override default styles */
 .sl-markdown-content {
-  > :is(p, ul, ol) {
+  :is(p) {
     margin-block: 0 1em;
   }
 
@@ -126,6 +126,7 @@ h4 {
 
   .sl-heading-wrapper {
     margin-block: 1.5em 0.5em;
+
     h2,
     h3 {
       max-width: min(30ch, 100%);

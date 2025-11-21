@@ -61,8 +61,10 @@ export default defineConfig({
           collapsed: false,
           items: [
             { label: 'Entwick­lungs­umgebung', slug: 'guides/setup' },
+            { label: 'Einführung ins Terminal', slug: 'guides/terminal' },
             {
               label: 'Installation',
+              collapsed: false,
               items: [
                 { label: 'Node.js und Paketmanager', slug: 'guides/nodejs' },
                 { label: 'Corepack', slug: 'guides/corepack' },
@@ -73,9 +75,14 @@ export default defineConfig({
                 }
               ]
             },
-            { label: 'Einführung ins Terminal', slug: 'guides/terminal' },
-            { label: 'Installation überprüfen', slug: 'guides/checks' },
-            { label: 'Probleme beheben', slug: 'guides/troubleshooting' }
+            {
+              label: 'Fehlerbehebung',
+              collapsed: true,
+              items: [
+                { label: 'Installation überprüfen', slug: 'guides/checks' },
+                { label: 'Probleme beheben', slug: 'guides/troubleshooting' }
+              ]
+            }
           ]
         },
         {
