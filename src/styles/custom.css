@@ -241,3 +241,10 @@ abbr {
   text-decoration-color: var(--sl-color-accent);
   /* text-decoration: underline; */
 }
+
+/* Remove bold sub menus */
+.top-level > li ul {
+  .group-label > .large {
+    font-weight: var(--sl-fw);
+  }
+}

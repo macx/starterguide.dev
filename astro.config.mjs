@@ -64,7 +64,7 @@ export default defineConfig({
             { label: 'Einführung ins Terminal', slug: 'guides/terminal' },
             {
               label: 'Installation',
-              collapsed: false,
+              collapsed: true,
               items: [
                 { label: 'Node.js und Paketmanager', slug: 'guides/nodejs' },
                 { label: 'Corepack', slug: 'guides/corepack' },
