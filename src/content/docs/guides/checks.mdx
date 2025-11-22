@@ -5,13 +5,12 @@ title: Installation überprüfen
 import Lead from '@components/Lead.astro'
 
 <Lead>
-  Leicht kann man sich bei der Installation von Software vertun. Hier erfährst
-  du, wie du die Installation von Git, Node.js und Yarn überprüfen kannst.
+  Wenn du bisher noch keine Berührungspunkte mit einem Terminal hattest, keine
+  Sorge! So kannst du prüfen, ob Node.js und die Paketmanager korrekt
+  installiert sind.
 </Lead>
 
-## Installation überprüfen
-
-Öffne unter macOS das Terminal und unter Windows die PowerShell. Gib dort die folgenden Befehle ein, um die Installation von Git, Node.js, Yarn und weiteren Tools zu überprüfen.
+Öffne unter macOS das Terminal bzw. unter Windows die PowerShell. Bei der Eingabe der folgenden Befehle erhältst du entweder eine Versionsnummer, was bedeutet, dass die Software korrekt installiert ist, oder eine Fehlermeldung, wenn sie nicht installiert ist.
 
 ```shell
 # Überprüfung von Node.js
@@ -30,28 +29,14 @@ brew -v
 choco -v
 ```
 
-Erhältst du keine Versionsnummer, ist die Software nicht korrekt installiert. In diesem Fall solltest du die Installation wiederholen.
+## Tipps
 
-:::tip
-Wenn du gerade Node.js, Git oder etwas anderes installiert hast, musst du das Terminal schließen und erneut öffnen, damit die Änderungen wirksam werden. Das gilt sowohl für macOS als auch für Windows.
-:::
+- **Du erhältst den Fehler `command not found`**
 
-## Hinweise zu Paketmanager-Versionen
+  Bevor du eine Fehleranalyse startest, starte dein Terminal oder die PowerShell neu. Manchmal werden Umgebungsvariablen erst nach einem Neustart aktualisiert. Die Umgebungsvariablen helfen dem System dabei, die installierten Programme zu finden.
 
-Wenn du mit verschiedenen Projekten arbeitest, solltest du darauf achten, nicht mehrere Paketmanager (npm, yarn, pnpm) global installiert zu haben. Für eine saubere Verwaltung empfiehlt sich die Nutzung von Corepack. Mehr dazu findest du im [Corepack-Tutorial](/guides/corepack).
+- **Du hattest zuvor schon Paketmanger installiert?**
 
-## Fehler beim Anlegen einer Kopie
+  Wenn du mit verschiedenen Projekten arbeitest, solltest du darauf achten, nicht mehrere Paketmanager (npm, yarn, pnpm) global installiert zu haben. Für eine saubere Verwaltung empfiehlt sich die Nutzung von Corepack. Mehr dazu findest du im [Corepack-Tutorial](/guides/corepack).
 
-Wenn du Beispieldateien von deinem Dozenten oder aus einem anderen Projekt kopierst (z. B. für Übungen mit Parcel, Astro oder anderen Tools), solltest du ausschließlich das `src`-Verzeichnis und die `package.json` übernehmen. Kopiere niemals die Verzeichnisse `node_modules`, `.parcel-cache`, `.yarn`, oder Dateien wie `package-lock.json`, `yarn.lock`, `pnpm-lock.yaml` mit.
-
-**Vorgehen:**
-
-1.  Kopiere das `src`-Verzeichnis und die `package.json` in dein neues Projektverzeichnis.
-2.  Lösche alle Lock-Dateien (`package-lock.json`, `yarn.lock`, `pnpm-lock.yaml`) und Caches (`node_modules`, `.parcel-cache`, `.yarn`).
-3.  Installiere die Abhängigkeiten neu:
-
-```shell
-npm install
-```
-
-Dadurch werden alle benötigten Pakete passend zu deiner Umgebung frisch installiert und du vermeidest Versionskonflikte oder Fehler durch alte Abhängigkeiten.
+Weitere mögliche Fehler und deren Lösungen findest du auf der Seite [Fehler beheben](/guides/troubleshooting).

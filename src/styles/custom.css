@@ -113,7 +113,7 @@ h4 {
 
 /* Override default styles */
 .sl-markdown-content {
-  :is(p) {
+  :is(p):has(:not(+ p)) {
     margin-block: 0 1em;
   }
 
