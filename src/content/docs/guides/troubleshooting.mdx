@@ -162,25 +162,27 @@ Das integrierte Terminal von VS Code verwendet jedoch standardmäßig `bash` als
 
 Eine weitere Fehlerquelle sind fehlende Pfade zu wichtigen Tools wie Python. Python ist eine Voraussetzung für `node-gyp`, da es Teile des Codes in C++ kompiliert. Was im Hintergrund da genau passiert, ist jetzt nicht relevant. Wichtig ist nur, dass wir dafür sorgen, dass `node-gyp` Python auch findet. Das machen wir über die sogenannten Umgebungsvariablen (`PATH`).
 
-Gebe im Terminal folgenden Befehl ein, um zu überprüfen, ob der Pfad gesetzt ist.
+Gib im **integrierten Terminal von VS Code** folgenden Befehl ein, um zu überprüfen, ob der Pfad gesetzt ist:
 
 ```shell
 which python3
 ```
 
-Wenn da kein Ergebnis kommt, fehlt der Pfad. Den kannst du so setzen:
+Wenn da kein Ergebnis kommt (aber im normalen Terminal schon), übernimmt VS Code die Pfade nicht korrekt. Das kannst du so beheben:
 
 <Steps>
 
-1. Öffne in VS Code die Einstellungen (`Cmd + ,`).
+1. Öffne in VS Code die Einstellungen (<kbd>⌘ Command</kbd> + <kbd>,</kbd>).
 
 2. Suche nach `terminal.integrated.inheritEnv` und aktiviere es.
 
 </Steps>
 
+Falls auch im normalen Terminal kein Pfad gefunden wird, musst du Python installieren. Am einfachsten geht das über [Homebrew](/guides/homebrew-chocolatey) mit `brew install python` oder indem du die **Command Line Tools** (siehe oben) installierst.
+
 #### 3. Rosetta-Modus
 
-Auf Mac mit Apple Silicon (M1, M2, M3, M4 usw.) kann es passieren, dass VS Code im „Rosetta-Modus" (für Intel-Chips) läuft, während dein System und Node.js nativ auf `arm64` laufen. Dieser Architektur-Mix führt zu Fehlern beim Kompilieren.
+Auf Macs mit Apple Silicon (M1, M2, M3, M4 usw.) kann es passieren, dass VS Code im „Rosetta-Modus" (für Intel-Chips) läuft, während dein System und Node.js nativ auf `arm64` laufen. Dieser Architektur-Mix führt zu Fehlern beim Kompilieren.
 
 Prüfe im Terminal durch die Eingabe von `arch`, ob VS Code im falschen Modus läuft. Erscheint `i386`, musst du die Einstellung ändern:
 
@@ -214,7 +216,7 @@ Das kann aber fehlschlagen, wenn sich in deinen HTML- und CSS-Dateien Fehler ein
 
 ![](../../../assets//vscode-prettier.png)
 
-Mit einem Klick auf den Button kannst du dir die genauen Fehler anzeigen lassen. Alernativ solltest du dir die Fehlermeldungen im „Problems“-Tab (`Cmd + Shift + M`) anschauen.
+Mit einem Klick auf den Button kannst du dir die genauen Fehler anzeigen lassen. Alternativ solltest du dir die Fehlermeldungen im „Problems“-Tab (`Cmd + Shift + M`) anschauen.
 
 ### Fehler beim Anlegen einer Kopie
 
