@@ -28,7 +28,7 @@ Oft scheitert es schon ganz am Anfang: Du darfst keine Skripte ausführen oder h
     Wenn Node.js oder npm mit `sudo` installiert wurden oder wenn die Standard-Verzeichnisse für globale Pakete nicht dem aktuellen Benutzer gehören, kommt es zu Problemen bei der Rechtevergabe. So kannst du das beheben:
 
     ```shell
-    sudo chown -R \$(whoami) \$(npm config get prefix)/{lib/node_modules,bin,share}
+    sudo chown -R $(whoami) $(npm config get prefix)/{lib/node_modules,bin,share}
     ```
 
   </TabItem>
@@ -118,7 +118,7 @@ Fehlende Compiler können mit den Xcode Command Line Tools nachinstalliert werde
 xcode-select --install
 ```
 
-Schlägt das fehlt, installiere dir die Command Line Tools manuell:
+Schlägt das fehl, installiere dir die Command Line Tools manuell:
 
 <Steps>
 
@@ -160,7 +160,7 @@ Das integrierte Terminal von VS Code verwendet jedoch standardmäßig `bash` als
 
 #### 2. Fehlende Pfade
 
-Einee weitere Fehlerquelle sind fehlende Pfade zu wichtigen Tools wie Python. Python ist eine Voraussetzung für `node-gyp`, da es Teile des Codes in C++ kompiliert. Was im Hintergrund da genau passiert, ist jetzt nicht relevant. Wichtig ist nur, dass wir dafür sorgen, dass `node-gyp` Python auch findet. Das machen wir über die sogenannten Umgebungsvariablen (`PATH`).
+Eine weitere Fehlerquelle sind fehlende Pfade zu wichtigen Tools wie Python. Python ist eine Voraussetzung für `node-gyp`, da es Teile des Codes in C++ kompiliert. Was im Hintergrund da genau passiert, ist jetzt nicht relevant. Wichtig ist nur, dass wir dafür sorgen, dass `node-gyp` Python auch findet. Das machen wir über die sogenannten Umgebungsvariablen (`PATH`).
 
 Gebe im Terminal folgenden Befehl ein, um zu überprüfen, ob der Pfad gesetzt ist.
 
@@ -178,7 +178,7 @@ Wenn da kein Ergebnis kommt, fehlt der Pfad. Den kannst du so setzen:
 
 </Steps>
 
-#### 4. Rosetta-Modus
+#### 3. Rosetta-Modus
 
 Auf Mac mit Apple Silicon (M1, M2, M3, M4 usw.) kann es passieren, dass VS Code im „Rosetta-Modus" (für Intel-Chips) läuft, während dein System und Node.js nativ auf `arm64` laufen. Dieser Architektur-Mix führt zu Fehlern beim Kompilieren.
 
@@ -220,4 +220,4 @@ Mit einem Klick auf den Button kannst du dir die genauen Fehler anzeigen lassen.
 
 Wenn du dir eine Vorlage oder ein Beispielprojekt kopierst, um daran zu arbeiten, kann es zu Problemen kommen, wenn du mehr kopierst als nötig. Wichtig für dich sind lediglich die Quelldateien im Verzeichnis `src` und die Datei `package.json`.
 
-Die Verzeichnisse `node_modules` und `.parcel-cache`, sowie die Datei `package-lock.json` solltest du löschen. Danach kannst du die Abhängigkeiten mit `nom install` wieder neu installieren. Das sollte das Problem beheben.
+Die Verzeichnisse `node_modules` und `.parcel-cache`, sowie die Datei `package-lock.json` solltest du löschen. Danach kannst du die Abhängigkeiten mit `npm install` wieder neu installieren. Das sollte das Problem beheben.
