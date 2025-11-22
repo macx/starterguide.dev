@@ -113,7 +113,7 @@ h4 {
 
 /* Override default styles */
 .sl-markdown-content {
-  :is(p):has(:not(+ p)) {
+  :is(p):not(:last-child) {
     margin-block: 0 1em;
   }
 
