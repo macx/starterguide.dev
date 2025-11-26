@@ -227,7 +227,7 @@ Fehler im Zusammenhang mit dem [Starterkit](/starterkit/intro) haben ihre Ursach
 
 ### Fehlermeldung `parcel: command not found`
 
-Das Starterkit nutzt [Parcel](https://parceljs.org/) als Build-Tool. Wenn du beim Starten des Entwicklungsservers die Fehlermeldung `parcel: command not found` erhältst, bedeutet das, dass du die Abhängigkeiten des Projekts nicht installiert hast. Hole das mit dem folgenden Befehl wie hier in [Installation der Abhängigkeiten](/starterkit/installation-der-abhaengigkeiten) beschrieben nach.
+Das Starterkit nutzt [Parcel](https://parceljs.org/) als Build-Tool. Wenn du beim Starten des Entwicklungsservers die Fehlermeldung `parcel: command not found` erhältst, bedeutet das, dass du die Abhängigkeiten des Projekts nicht installiert hast. Hole das mit dem folgenden Befehl wie nach.
 
 ```shell
 npm install
@@ -235,13 +235,13 @@ npm install
 
 ### Fehler mit Prettier (`SyntaxError`)
 
-Wenn du in VS Code das Profil [HAWK GT1191](https://hawk-gt1191.de/tutorials/website-mit-visual-studio-code#plugins-und-konfiguration) nutzt, ist dort Prettier vorkonfiguriert. Prettier ist ein Code-Formatter, der deinen Code automatisch formatiert, damit er einheitlich aussieht.
+Wenn du in VS Code das Profil [HAWK GT1191](https://hawk-gt1191.de/tutorials/website-mit-visual-studio-code#plugins-und-konfiguration) nutzt, ist Prettier bereits vorkonfiguriert. Prettier formatiert deine Quelldateien und erzeugt daraus die Ausgabe, die im Buildprozess und später im Browser geladen wird. Scheitert die Validierung (z. B. wegen ungültigem HTML oder fehlerhaftem CSS), wird keine neue Ausgabedatei erzeugt — deine Änderungen erscheinen dann nicht im Browser.
 
-Das kann aber fehlschlagen, wenn sich in deinen HTML- und CSS-Dateien Fehler eingeschlichen haben. Prettier ist dann nicht in der Lage, die Dateien zu formatieren, was zu `SyntaxError`-Meldungen führt. Das erkennst du meist am roten Prettier-Button in der Statusleiste von VS Code unten rechts.
+Ein roter Prettier‑Button in der Statusleiste oder Hinweise im „Problems“-Tab (`Cmd + Shift + M`) zeigen die genauen Parser‑/Syntaxfehler an.
 
-![](../../../assets//vscode-prettier.png)
+![Prettier-Fehler in Visual Studio Code](../../../assets//vscode-prettier.png)
 
-Mit einem Klick auf den Button kannst du dir die genauen Fehler anzeigen lassen. Alternativ solltest du dir die Fehlermeldungen im „Problems“-Tab (`Cmd + Shift + M`) anschauen.
+Korrigiere die gemeldete Stelle und speichere die Datei, damit der Formatter/Buildprozess wieder eine aktualisierte Ausgabe erzeugt. Dann sollten deine Änderungen im Browser wieder sichtbar sein und der Prettier‑Button ändert seine Farbe.
 
 ### Fehler beim Anlegen einer Kopie
 
