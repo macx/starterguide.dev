@@ -20,9 +20,17 @@ Die Installation von npm-Paketen kann fehlschlagen und zu roten Fehlermeldungen 
 
 <Tabs>
   <TabItem label="macOS">
+    ### Nicht auf dem Desktop arbeiten
+
+    Vermeide es, Projekte direkt auf dem Desktop (`~/Schreibtisch`) zu erstellen oder zu bearbeiten. macOS hat hier oft restriktive Sicherheitseinstellungen, die den Zugriff auf benötigte Ressourcen verhindern können.
+
+    macOS hat auch die Angewohnheit, den Desktop-Ordner regelmäßig zu indexieren, sichern und zu synchronisieren (z. B. mit iCloud), was ebenfalls zu Problemen führen kann, wenn man mit Node arbeitet.
+
+    Lege deine Projekte stattdessen in deinem Benutzerverzeichnis (`~/Dokumente` oder `~/Projekte`) an.
+
     ### Fehlende Command Line Tools
 
-    Oft liegt es daran, dass die Xcode Command Line Tools fehlen. Diese kannst du mit folgendem Befehl installieren:
+    Oft liegt der Fehler in Zusammenhang mit `node-gyp` daran, dass die Xcode Command Line Tools fehlen, das ist auf dem Mac die Basis für viele Build-Tools. Diese kannst du mit folgendem Befehl installieren:
 
     ```shell
     xcode-select --install
