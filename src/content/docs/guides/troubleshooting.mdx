@@ -20,126 +20,140 @@ Die Installation von npm-Paketen kann fehlschlagen und zu roten Fehlermeldungen 
 
 <Tabs>
   <TabItem label="macOS">
-    ### Nicht auf dem Desktop arbeiten
 
-    Vermeide es, Projekte direkt auf dem Desktop (`~/Schreibtisch`) zu erstellen oder zu bearbeiten. macOS hat hier oft restriktive Sicherheitseinstellungen, die den Zugriff auf benötigte Ressourcen verhindern können.
+    ### Falscher Speicherort für Projekte
 
-    macOS hat auch die Angewohnheit, den Desktop-Ordner regelmäßig zu indexieren, sichern und zu synchronisieren (z. B. mit iCloud), was ebenfalls zu Problemen führen kann, wenn man mit Node arbeitet.
+    Vermeide Probleme mit Node.js und npm, indem du folgende Regeln für deine Projektverzeichnisse beachtest:
 
-    Lege deine Projekte stattdessen in deinem Benutzerverzeichnis (`~/Dokumente` oder `~/Projekte`) an.
+    1. **Nicht in iCloud-synchronisierten Ordnern speichern**
 
-    ### Fehlende Command Line Tools
+        Nutze **niemals** `~/Desktop`, `~/Documents` oder `~/Downloads` für deine ;Coding-Projekte.
 
-    Oft liegt der Fehler in Zusammenhang mit `node-gyp` daran, dass die Xcode Command Line Tools fehlen, das ist auf dem Mac die Basis für viele Build-Tools. Diese kannst du mit folgendem Befehl installieren:
+        **Grund:** Diese Ordner werden oft von iCloud Drive synchronisiert. Da `node_modules` aus Tausenden kleiner Dateien besteht, führt die Synchronisation zu Dateisperren, extremer Verlangsamung und fehlerhaften Builds. Zudem blockieren macOS-Sicherheitsrichtlinien (TCC) oft den Zugriff durch das&nbsp;Terminal.
 
-    ```shell
-    xcode-select --install
-    ```
+    2. **Keine Sonderzeichen oder Schrägstriche im&nbsp;Ordnernamen**
 
-    Schlägt das fehl, installiere dir die Command Line Tools manuell:
+        Vermeide Leerzeichen, Umlaute und **vor allem Schrägstriche (`/`)** in Verzeichnisnamen (z. B. nicht `ui/ux`, sondern `ui-ux`).
 
-    <Steps>
+        **Grund:** Der Schrägstrich `/` ist in Unix-Systemen das Trennzeichen für Verzeichnisse. Ein Ordnername wie `ui/ux` zerstört den Dateipfad, da das System nach einem Unterordner sucht, der nicht existiert.
 
-    1. Gehe auf [Apple Developer Downloads](https://developer.apple.com/download/all/?q=Command%20Line%20Tools).
+      **✅ Empfehlung:**
 
-    2. Melde dich mit deiner Apple-ID an, die du auch im AppStore verwendest.
+      Erstelle ein dediziertes Verzeichnis in deinem Benutzerordner, das nicht synchronisiert wird, z. B.: `~/Development/projekt-name` oder `~/Projekte/projekt-name`. Dieses kannst du mit dem Befehl `mkdir -p ~/Development/projekt-name` im Terminal anlegen.
 
-    3. Suche nach „Command Line Tools" passend zu deiner macOS-Version und installiere sie.
+      ### Fehlende Command Line Tools
 
-    </Steps>
+      Oft liegt der Fehler in Zusammenhang mit `node-gyp` daran, dass die Xcode Command Line Tools fehlen, das ist auf dem Mac die Basis für viele Build-Tools. Diese kannst du mit folgendem Befehl installieren:
 
-    Falls hier weiterhin Fehler auftreten, kann es helfen, die fehlerhafte Installation von den Command Line Tools zu entfernen und neu zu installieren. Folge dafür der Anleitung [Reset your Xcode Install on macOS](https://gist.github.com/Justintime50/2349ff5e62555aa097acbf519bbc27af)
+      ```shell
+      xcode-select --install
+      ```
 
-    ### Fehler im integrierten Terminal
+      Schlägt das fehl, installiere dir die Command Line Tools manuell:
 
-    Ein frustrierendes, aber bekanntes Phänomen: Du hast die Command Line Tools installiert und im normalen Terminal funktioniert `npm install` problemlos. Doch im integrierten Terminal von VS Code hagelt es immer noch rote Fehlermeldungen (oft `node-gyp` oder `gyp ERR`).
+      <Steps>
 
-    Auch das kann mehrere Ursachen haben. Die gebräuchlichsten hier sind:
+      1. Gehe auf [Apple Developer Downloads](https://developer.apple.com/download/all/?q=Command%20Line%20Tools).
 
-    #### 1. Falsche Shell (`bash` statt `zsh`)
+      2. Melde dich mit deiner Apple-ID an, die du auch im AppStore verwendest.
 
-    Seit macOS Catalina (10.15) ist `zsh` die Standard-Shell auf dem Mac. Wenn du Node.js (z. B. über Homebrew) installiert hast, ist es in der Regel für `zsh` konfiguriert. Das in Visual Studio Code (VS Code) integrierte Terminal verwendet oft noch `bash`, bei der die Pfade nicht stimmen.
+      3. Suche nach „Command Line Tools" passend zu deiner macOS-Version und installiere sie.
 
-    Im Bereich „Terminal“ von VS Code oben rechts findest du heraus, welche Shell du nutzt: Es gibt rechts oben ein Dropdown-Menü, das die aktuell genutzte Shell anzeigt.
+      </Steps>
 
-    ![VS Code Terminal Profile Selection](../../../assets//vscode-terminal-and-zsh.png)
+      Falls hier weiterhin Fehler auftreten, kann es helfen, die fehlerhafte Installation von den Command Line Tools zu entfernen und neu zu installieren. Folge dafür der Anleitung [Reset your Xcode Install on macOS](https://gist.github.com/Justintime50/2349ff5e62555aa097acbf519bbc27af)
 
-    Mit dem Klick auf das `+`-Symbol kannst du ein neues `zsh`-Terminal öffnen. Schließe dann mit einem Klick auf das Mülltonnen-Symbol das alte `bash`-Terminal.
+      ### Fehler im integrierten Terminal
 
-    Mit dem Befehl `echo $SHELL` kannst du im Terminal selbst überprüfen, welche Shell gerade aktiv ist. Erscheint `/bin/zsh`, ist alles korrekt. Steht dort `/bin/bash`, solltest du das ändern.
+      Ein frustrierendes, aber bekanntes Phänomen: Du hast die Command Line Tools installiert und im normalen Terminal funktioniert `npm install` problemlos. Doch im integrierten Terminal von VS Code hagelt es immer noch rote Fehlermeldungen (oft `node-gyp` oder `gyp ERR`).
 
-    Damit sich in VS Code beim nächsten Mal automatisch `zsh` öffnet, kannst du das Standard-Profil ändern:
+      Auch das kann mehrere Ursachen haben. Die gebräuchlichsten hier sind:
 
-    <Steps>
+      #### 1. Falsche Shell (`bash` statt `zsh`)
 
-    1. Öffne die Befehlspalette (<kbd>⌘ Command</kbd> + <kbd>⇧ Shift</kbd> + <kbd>P</kbd>).
+      Seit macOS Catalina (10.15) ist `zsh` die Standard-Shell auf dem Mac. Wenn du Node.js (z. B. über Homebrew) installiert hast, ist es in der Regel für `zsh` konfiguriert. Das in Visual Studio Code (VS Code) integrierte Terminal verwendet oft noch `bash`, bei der die Pfade nicht stimmen.
 
-    2. Suche nach `Terminal: Select Default Profile`.
+      Im Bereich „Terminal“ von VS Code oben rechts findest du heraus, welche Shell du nutzt: Es gibt rechts oben ein Dropdown-Menü, das die aktuell genutzte Shell anzeigt.
 
-    3. Wähle **zsh** aus.
+      ![VS Code Terminal Profile Selection](../../../assets//vscode-terminal-and-zsh.png)
 
-    </Steps>
+      Mit dem Klick auf das `+`-Symbol kannst du ein neues `zsh`-Terminal öffnen. Schließe dann mit einem Klick auf das Mülltonnen-Symbol das alte `bash`-Terminal.
 
-    #### 2. Fehlende Pfade
+      Mit dem Befehl `echo $SHELL` kannst du im Terminal selbst überprüfen, welche Shell gerade aktiv ist. Erscheint `/bin/zsh`, ist alles korrekt. Steht dort `/bin/bash`, solltest du das ändern.
 
-    Eine weitere Fehlerquelle sind fehlende Pfade zu wichtigen Tools wie Python. Python ist eine Voraussetzung für `node-gyp`, da es Teile des Codes in C++ kompiliert. Was im Hintergrund da genau passiert, ist jetzt nicht relevant. Wichtig ist nur, dass wir dafür sorgen, dass `node-gyp` Python auch findet. Das machen wir über die sogenannten Umgebungsvariablen (`PATH`).
+      Damit sich in VS Code beim nächsten Mal automatisch `zsh` öffnet, kannst du das Standard-Profil ändern:
 
-    Gib im **integrierten Terminal von VS Code** folgenden Befehl ein, um zu überprüfen, ob der Pfad gesetzt ist:
+      <Steps>
 
-    ```shell
-    which python3
-    ```
+      1. Öffne die Befehlspalette (<kbd>⌘ Command</kbd> + <kbd>⇧ Shift</kbd> + <kbd>P</kbd>).
 
-    Wenn da kein Ergebnis kommt (aber im normalen Terminal schon), übernimmt VS Code die Pfade nicht korrekt. Das kannst du so beheben:
+      2. Suche nach `Terminal: Select Default Profile`.
 
-    <Steps>
+      3. Wähle **zsh** aus.
 
-    1. Öffne in VS Code die Einstellungen (<kbd>⌘ Command</kbd> + <kbd>,</kbd>).
+      </Steps>
 
-    2. Suche nach `terminal.integrated.inheritEnv` und aktiviere es.
+      #### 2. Fehlende Pfade
 
-    </Steps>
+      Eine weitere Fehlerquelle sind fehlende Pfade zu wichtigen Tools wie Python. Python ist eine Voraussetzung für `node-gyp`, da es Teile des Codes in C++ kompiliert. Was im Hintergrund da genau passiert, ist jetzt nicht relevant. Wichtig ist nur, dass wir dafür sorgen, dass `node-gyp` Python auch findet. Das machen wir über die sogenannten Umgebungsvariablen (`PATH`).
 
-    #### 3. Rosetta-Modus
+      Gib im **integrierten Terminal von VS Code** folgenden Befehl ein, um zu überprüfen, ob der Pfad gesetzt ist:
 
-    Auf Macs mit Apple Silicon (M1, M2, M3, M4 usw.) kann es passieren, dass VS Code im „Rosetta-Modus" (für Intel-Chips) läuft, während dein System und Node.js nativ auf `arm64` laufen. Dieser Architektur-Mix führt zu Fehlern beim Kompilieren.
+      ```shell
+      which python3
+      ```
 
-    Prüfe im Terminal durch die Eingabe von `arch`, ob VS Code im falschen Modus läuft. Erscheint `i386`, musst du die Einstellung ändern:
+      Wenn da kein Ergebnis kommt (aber im normalen Terminal schon), übernimmt VS Code die Pfade nicht korrekt. Das kannst du so beheben:
 
-    <Steps>
+      <Steps>
 
-    1. Beende VS Code vollständig.
+      1. Öffne in VS Code die Einstellungen (<kbd>⌘ Command</kbd> + <kbd>,</kbd>).
 
-    2. Öffne den Finder und gehe zu „Programme".
+      2. Suche nach `terminal.integrated.inheritEnv` und aktiviere es.
 
-    3. Rechtsklick auf „Visual Studio Code" > „Informationen".
+      </Steps>
 
-    4. Entferne den Haken bei **„Mit Rosetta öffnen"**.
+      #### 3. Rosetta-Modus
 
-    </Steps>
+      Auf Macs mit Apple Silicon (M1, M2, M3, M4 usw.) kann es passieren, dass VS Code im „Rosetta-Modus" (für Intel-Chips) läuft, während dein System und Node.js nativ auf `arm64` laufen. Dieser Architektur-Mix führt zu Fehlern beim Kompilieren.
 
-  </TabItem>
+      Prüfe im Terminal durch die Eingabe von `arch`, ob VS Code im falschen Modus läuft. Erscheint `i386`, musst du die Einstellung ändern:
 
-  <TabItem label="Windows">
+      <Steps>
+
+      1. Beende VS Code vollständig.
+
+      2. Öffne den Finder und gehe zu „Programme".
+
+      3. Rechtsklick auf „Visual Studio Code" > „Informationen".
+
+      4. Entferne den Haken bei **„Mit Rosetta öffnen"**.
+
+      </Steps>
+
+    </TabItem>
+
+    <TabItem label="Windows">
     ### Fehlende Build Tools
 
-    Unter Windows fehlen oft die C++ Build Tools und Python, die für `node-gyp` benötigt werden.
+      Unter Windows fehlen oft die C++ Build Tools und Python, die für `node-gyp` benötigt werden.
 
-    Am einfachsten installierst du diese Tools über den Node.js Installer:
+      Am einfachsten installierst du diese Tools über den Node.js Installer:
 
-    <Steps>
+      <Steps>
 
-      1. Lade dir den aktuellen [Node.js Installer](https://nodejs.org/) herunter und führe ihn aus.
+        1. Lade dir den aktuellen [Node.js Installer](https://nodejs.org/) herunter und führe ihn aus.
 
-      2. Wähle im Installationsprozess die Option **"Automatically install the necessary tools..."** aus. Dies installiert Chocolatey, Python und die Visual Studio Build Tools.
+        2. Wähle im Installationsprozess die Option **"Automatically install the necessary tools..."** aus. Dies installiert Chocolatey, Python und die Visual Studio Build Tools.
 
-    </Steps>
+      </Steps>
 
-    :::note
-    Im Abschnitt [Node.js und Paketmanager](/guides/nodejs/) findest du weitere Informationen zur Installation von Node.js auf Windows.
-    :::
+      :::note
+      Im Abschnitt [Node.js und Paketmanager](/guides/nodejs/) findest du weitere Informationen zur Installation von Node.js auf Windows.
+      :::
 
-  </TabItem>
+    </TabItem>
+
 </Tabs>
 
 ## Berechtigungen & Skripte
